@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  zookeeper:
+    image: 'zookeeper:3.5.9'
+    restart: always
+    container_name: single-zookeeper
+    ports:
+      - 2181:2181
+    environment:
+      ZOO_MAX_CLIENT_CNXNS: 120
+      ZOO_AUTOPURGE_PURGEINTERVAL: 24
+      JVMFLAGS: "-Xms1024m -Xmx1024m -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:+AlwaysPreTouch -Djute.maxbuffer=4194304 -Dzookeeper.serverCnxnFactory=org.apache.zookeeper.server.NettyServerCnxnFactory"
+
+  zoonavigator:
+    image: 'elkozmon/zoonavigator:latest'
+    restart: always
+    ports:
+      - 9000:9000
+    environment:
+      HTTP_PORT: 9000
