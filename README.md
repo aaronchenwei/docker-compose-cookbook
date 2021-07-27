@@ -1,3 +1,3 @@
 # docker-compose-cookbook
 
-A collection of docker-compose.yml files. 
+A collection of docker-compose.yml files for development environment setup. 
