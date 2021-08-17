@@ -2,6 +2,13 @@ version: "2"
 
 services:
   registry:
-    image: "registry:2"
+    image: registry:2
     restart: always
-    network_mode: host
+    container_name: registry
+    ports:
+      - 5000:5000
+    volumes:
+      - registry:/var/lib/registry
+
+volumes:
+  registry:
