@@ -1,11 +1,12 @@
-version: "2"
+version: "2.4"
 
 services:
   kafka:
     image: confluentinc/cp-kafka:5.4.4
     depends_on:
       - zookeeper
-    restart: always
+    restart: unless-stopped
+    container_name: cp-kafka
     network_mode: host
     environment:
       - KAFKA_BROKER_ID=1
@@ -15,7 +16,8 @@ services:
 
   zookeeper:
     image: confluentinc/cp-zookeeper:5.4.4
-    restart: always
+    restart: unless-stopped
+    container_name: cp-zookeeper
     network_mode: host
     environment:
       - ZOOKEEPER_CLIENT_PORT=32181
