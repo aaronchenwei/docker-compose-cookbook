@@ -2,15 +2,15 @@ version: "2.4"
 
 services:
   influxdb:
-    image: influxdb:1.8
+    image: influxdb:2.0
     restart: unless-stopped
-    container_name: influxdb-v1
+    container_name: influxdb-v2
     # network_mode: host
     network_mode: bridge
     ports:
       - 8086:8086
     volumes:
-      - influxdb-v1:/var/lib/influxdb
+      - influxdb-v2:/var/lib/influxdb2
 
 volumes:
-  influxdb-v1:
+  influxdb-v2:
