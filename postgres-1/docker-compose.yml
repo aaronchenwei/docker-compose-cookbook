@@ -1,0 +1,17 @@
+version: "2.4"
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    restart: unless-stopped
+    network_mode: bridge
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=password123
+      - POSTGRES_DB=alpha
+    volumes:
+      - ./volume/my-postgres.conf:/etc/postgresql/postgresql.conf
+      - ./volume/data:/var/lib/postgres
+    command: postgres -c 'config_file=/etc/postgresql/postgresql.conf'
