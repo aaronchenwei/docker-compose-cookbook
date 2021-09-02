@@ -1,0 +1,14 @@
+version: "2.4"
+
+services:
+  mysql:
+    image: mariadb:10.6
+    restart: always
+    network_mode: bridge
+    ports:
+      - 3306:3306
+    environment:
+      MARIADB_ROOT_PASSWORD: example
+    volumes:
+      - ./volume/conf.d:/etc/mysql/conf.d
+      - ./volume/data:/var/lib/mysql
