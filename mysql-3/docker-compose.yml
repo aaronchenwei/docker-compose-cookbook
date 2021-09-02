@@ -2,7 +2,8 @@ version: "2.4"
 
 services:
   mysql:
-    image: bitnami/mysql:latest
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
     restart: unless-stopped
     network_mode: bridge
     ports:
@@ -10,5 +11,5 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=password123
     volumes:
-      - ./volume/mysql-persistence:/bitnami/mysql/data
-      - ./volume/my_custom.cnf:/opt/bitnami/mysql/conf/my_custom.cnf:ro
+      - ./volume/conf.d:/etc/mysql/conf.d
+      - ./volume/data:/var/lib/mysql
