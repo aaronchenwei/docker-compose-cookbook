@@ -1,0 +1,18 @@
+version: "2.4"
+
+services:
+  mysql:
+    image: bitnami/mysql:latest
+    restart: unless-stopped
+    network_mode: bridge
+    ports:
+      - 3306:3306
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_ROOT_PASSWORD=password123
+      - MYSQL_USER=my_user
+      - MYSQL_PASSWORD=my_password
+      - MYSQL_DATABASE=my_database
+    volumes:
+      - ./volume/mysql-persistence:/bitnami/mysql/data
+      - ./volume/my_custom.cnf:/opt/bitnami/mysql/conf/my_custom.cnf:ro
