@@ -1,0 +1,47 @@
+{
+  "version": "v1rc1",
+  "description": "web console import",
+  "clientSettings": {
+    "concurrency": 10,
+    "channelBufferSize": 128,
+    "space": "nba",
+    "connection": {
+      "user": "user",
+      "password": "password",
+      "address": "192.168.10.36:3699"
+    }
+  },
+  "logPath": "/upload-dir/tmp/import.log",
+  "files": [
+    {
+      "path": "/upload-dir/player.csv",
+      "failDataPath": "/upload-dir/tmp/err/数据源 1Fail.csv",
+      "batchSize": 10,
+      "type": "csv",
+      "csv": {
+        "withHeader": false,
+        "withLabel": false
+      },
+      "schema": {
+        "type": "vertex",
+        "vertex": {
+          "vid": {
+            "index": 0
+          },
+          "tags": [
+            {
+              "name": "player",
+              "props": [
+                {
+                  "name": "name",
+                  "type": "string",
+                  "index": 1
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

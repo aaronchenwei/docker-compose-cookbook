@@ -1,0 +1,4 @@
+2021/02/02 09:13:38 [INFO] clientmgr.go:28: Create 10 Nebula Graph clients
+2021/02/02 09:13:38 [INFO] reader.go:64: Start to read file(0): /upload-dir/player.csv, schema: < :VID,player.name:string >
+2021/02/02 09:13:38 [INFO] reader.go:180: Total lines of file(/upload-dir/player.csv) is: 9, error lines: 0
+2021/02/02 09:13:38 [INFO] statsmgr.go:61: Done(/upload-dir/player.csv): Time(0.58s), Finished(9), Failed(0), Latency AVG(27593us), Batches Req AVG(43737us), Rows AVG(15.48/s)
