@@ -1,0 +1,33 @@
+version: "2.4"
+
+services:
+  fdb-coordinator:
+    image: foundationdb/foundationdb:${FDB_VERSION}
+    environment:
+      FDB_COORDINATOR: ${FDB_COORDINATOR}
+      FDB_NETWORKING_MODE: ${FDB_NETWORKING_MODE}
+      FDB_COORDINATOR_PORT: ${FDB_COORDINATOR_PORT}
+    ports:
+      - 4500:4500/tcp
+  fdb-server-1:
+    depends_on:
+      - fdb-coordinator
+    image: foundationdb/foundationdb:${FDB_VERSION}
+    environment:
+      FDB_COORDINATOR: ${FDB_COORDINATOR}
+      FDB_NETWORKING_MODE: ${FDB_NETWORKING_MODE}
+      FDB_COORDINATOR_PORT: ${FDB_COORDINATOR_PORT}
+  fdb-server-2:
+    depends_on:
+      - fdb-coordinator
+    image: foundationdb/foundationdb:${FDB_VERSION}
+    environment:
+      FDB_COORDINATOR: ${FDB_COORDINATOR}
+      FDB_NETWORKING_MODE: ${FDB_NETWORKING_MODE}
+      FDB_COORDINATOR_PORT: ${FDB_COORDINATOR_PORT}
+    volumes:
+      - "fdb_data:/var/fdb/data"
+
+volumes:
+  fdb_data:
+    driver: local
