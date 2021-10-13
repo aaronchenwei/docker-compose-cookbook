@@ -1,0 +1,10 @@
+version: "2.4"
+
+services:
+  redis-server:
+    image: redis
+    container_name: redis-server
+    restart: unless-stopped
+    network_mode: bridge
+    ports:
+      - "6379:6379"
