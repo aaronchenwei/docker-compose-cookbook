@@ -1,0 +1,22 @@
+services:
+  ch_server:
+    image: yandex/clickhouse-server
+    ports:
+      - "8123:8123"
+    volumes:
+      - ./db:/var/lib/clickhouse
+    networks:
+      - ch_ntw
+
+  # ch_client:
+  #   image: yandex/clickhouse-client
+  #   entrypoint:
+  #     - /bin/sleep
+  #   command:
+  #     - infinity
+  #   networks:
+  #     - ch_ntw
+
+networks:
+  ch_ntw:
+    driver: bridge
