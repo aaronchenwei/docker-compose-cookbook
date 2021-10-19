@@ -2,7 +2,7 @@ version: "2.4"
 
 services:
   redis-server:
-    image: redis
+    image: redis:6.2
     container_name: redis-server
     restart: unless-stopped
     network_mode: bridge
