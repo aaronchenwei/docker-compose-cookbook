@@ -3,6 +3,7 @@ services:
     image: zookeeper:3.5
     container_name: single-zookeeper
     restart: unless-stopped
+    cpuset: 0,1
     ports:
       - 2181:2181
     environment:

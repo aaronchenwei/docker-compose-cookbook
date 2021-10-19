@@ -3,6 +3,7 @@ version: "2"
 services:
   zookeeper1:
     image: "bitnami/zookeeper:3.7"
+    cpuset: 0,1
     ports:
       - "2181"
       - "2888"
@@ -13,6 +14,7 @@ services:
       - ZOO_SERVERS=0.0.0.0:2888:3888,zookeeper2:2888:3888,zookeeper3:2888:3888
   zookeeper2:
     image: "bitnami/zookeeper:3.7"
+    cpuset: 2,3
     ports:
       - "2181"
       - "2888"
@@ -23,6 +25,7 @@ services:
       - ZOO_SERVERS=zookeeper1:2888:3888,0.0.0.0:2888:3888,zookeeper3:2888:3888
   zookeeper3:
     image: "bitnami/zookeeper:3.7"
+    cpuset: 4,5
     ports:
       - "2181"
       - "2888"
