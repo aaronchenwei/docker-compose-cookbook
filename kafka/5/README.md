@@ -1,6 +1,10 @@
 # Configure Kafka Security
 
 ```bash
+$ mkdir -p zookeeper/data
+$ mkdir -p kafka/data
+$ chown -R 1001:1001 zookeeper
+$ sudo chown -R 1001:1001 kafka
 $ docker-compose up -d
 ```
 
