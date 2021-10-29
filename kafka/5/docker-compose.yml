@@ -16,6 +16,8 @@ services:
       - ZOO_SERVER_PASSWORDS=zkpass
       - ZOO_CLIENT_USER=zkclient
       - ZOO_CLIENT_PASSWORD=zkpass
+    volumes:
+      - ./zookeeper/data:/bitnami/zookeeper
   kafka:
     image: "bitnami/kafka:2"
     container_name: kafka
@@ -41,5 +43,7 @@ services:
       - KAFKA_ZOOKEEPER_PROTOCOL=SASL
       - KAFKA_ZOOKEEPER_USER=zookeeper
       - KAFKA_ZOOKEEPER_PASSWORD=zkpass
+    volumes:
+      - ./kafka/data:/bitnami/kafka
     depends_on:
       - zookeeper
