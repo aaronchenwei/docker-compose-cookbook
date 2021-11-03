@@ -1,6 +1,32 @@
 # docker-compose-cookbook
 
-A collection of docker-compose.yml files for development environment setup. `docker-compose` version 1.27+ is used.
+A collection of docker-compose.yml files for development environment setup. `docker-compose` version ~~1.27+~~ v2 is used.
+
+Since the release of `docker compose` [v2.1.0](https://github.com/docker/compose/releases/tag/v2.1.0), the `docker-compose.yml` files in this project will be gradually switched to use docker compose v2.
+
+Here is the quick guide to install `docker compose` v2 on Linux. More detailed information could be found [here](https://docs.docker.com/compose/cli-command/)
+
+1. Run the following command to download the current stable release of Docker Compose:
+
+    ```bash
+    $ mkdir -p ~/.docker/cli-plugins/
+    $ curl -SL https://github.com/docker/compose/releases/download/v2.1.0/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+    ```
+
+    This command installs Compose V2 for the active user under `$HOME` directory. To install Docker Compose for all users on your system, replace `~/.docker/cli-plugins` with `/usr/local/lib/docker/cli-plugins`.
+
+2. Apply executable permissions to the binary:
+
+    ```bash
+    $ chmod +x ~/.docker/cli-plugins/docker-compose
+    ```
+
+3. Test your installation
+
+    ```bash
+    $ docker compose version
+    Docker Compose version v2.1.0
+    ```
 
 ## Note
 
