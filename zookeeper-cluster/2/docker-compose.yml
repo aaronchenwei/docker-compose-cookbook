@@ -1,5 +1,3 @@
-version: "2"
-
 services:
   zookeeper1:
     image: "bitnami/zookeeper:3.7"
@@ -12,6 +10,7 @@ services:
       - ALLOW_ANONYMOUS_LOGIN=yes
       - ZOO_SERVER_ID=1
       - ZOO_SERVERS=0.0.0.0:2888:3888,zookeeper2:2888:3888,zookeeper3:2888:3888
+
   zookeeper2:
     image: "bitnami/zookeeper:3.7"
     cpuset: 2,3
@@ -23,6 +22,7 @@ services:
       - ALLOW_ANONYMOUS_LOGIN=yes
       - ZOO_SERVER_ID=2
       - ZOO_SERVERS=zookeeper1:2888:3888,0.0.0.0:2888:3888,zookeeper3:2888:3888
+
   zookeeper3:
     image: "bitnami/zookeeper:3.7"
     cpuset: 4,5
