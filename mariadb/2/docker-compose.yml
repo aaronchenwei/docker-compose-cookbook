@@ -1,15 +1,19 @@
-version: "2.4"
-
 services:
   mariadb:
-    image: docker.io/bitnami/mariadb:10.6
+    image: bitnami/mariadb:10.6
     ports:
       - "3306:3306"
     volumes:
       - "mariadb_data:/bitnami/mariadb"
     environment:
-      # ALLOW_EMPTY_PASSWORD is recommended only for development.
-      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_ROOT_PASSWORD=password123
+      - MARIADB_EXTRA_FLAGS=--max-connect-errors=1000 --max_connections=155
+      - MARIADB_SKIP_TEST_DB=yes
+      - MARIADB_USER=my_user
+      - MARIADB_PASSWORD=my_password
+      - MARIADB_DATABASE=my_database
+      - MARIADB_CHARACTER_SET=utf8mb4
+      - MARIADB_COLLATE=utf8mb4_unicode_ci
     healthcheck:
       test: ["CMD", "/opt/bitnami/scripts/mariadb/healthcheck.sh"]
       interval: 15s
