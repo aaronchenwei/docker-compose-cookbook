@@ -1,24 +1,25 @@
-version: "2.4"
-
 services:
   mysql:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+    image: mysql:5.7
+    command:
+      [
+        "--default-authentication-plugin=mysql_native_password",
+        "--innodb_buffer_pool_size=16G",
+        "--innodb_log_file_size=512M",
+        "--lower_case_table_names=1",
+        "--max_connections=1001",
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_unicode_ci",
+      ]
     restart: always
     network_mode: bridge
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: example
+      - MYSQL_ROOT_PASSWORD=example
     volumes:
       - mysql:/var/lib/mysql
 
-  adminer:
-    image: adminer
-    restart: always
-    network_mode: bridge
-    ports:
-      - 8080:8080
-
 volumes:
   mysql:
+    driver: local
