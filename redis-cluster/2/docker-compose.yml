@@ -1,6 +1,6 @@
 services:
   redis-node-0:
-    image: redis:latest
+    image: redis:6
     container_name: redis-node-0
     network_mode: host
     command:
@@ -15,7 +15,7 @@ services:
       - redis-cluster_data-0:/redis/data
 
   redis-node-1:
-    image: redis:latest
+    image: redis:6
     container_name: redis-node-1
     network_mode: host
     command:
@@ -30,7 +30,7 @@ services:
       - redis-cluster_data-1:/redis/data
 
   redis-node-2:
-    image: redis:latest
+    image: redis:6
     container_name: redis-node-2
     network_mode: host
     command:
@@ -45,7 +45,7 @@ services:
       - redis-cluster_data-2:/redis/data
 
   redis-node-3:
-    image: redis:latest
+    image: redis:6
     container_name: redis-node-3
     network_mode: host
     command:
@@ -60,7 +60,7 @@ services:
       - redis-cluster_data-3:/redis/data
 
   redis-node-4:
-    image: redis:latest
+    image: redis:6
     container_name: redis-node-4
     network_mode: host
     command:
@@ -75,7 +75,7 @@ services:
       - redis-cluster_data-4:/redis/data
 
   redis-node-5:
-    image: redis:latest
+    image: redis:6
     container_name: redis-node-5
     network_mode: host
     command:
