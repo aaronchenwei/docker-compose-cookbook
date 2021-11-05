@@ -1,4 +1,4 @@
-version: '2'
+version: "2"
 
 # networks:
 #   neo4j-network:
@@ -8,8 +8,8 @@ services:
   neo4j:
     image: neo4j:4.3
     environment:
-      - NEO4J_AUTH=none
-      # - NEO4J_AUTH=neo4j/your_password
+      # - NEO4J_AUTH=none
+      - NEO4J_AUTH=neo4j/neo4j
       - NEO4J_dbms_memory_pagecache_size=8G
       - NEO4J_dbms.memory.heap.initial_size=1G
       - NEO4J_dbms_memory_heap_max__size=8G
@@ -17,11 +17,11 @@ services:
     #   - neo4j-network
     network_mode: bridge
     ports:
-      - '7474:7474'
-      - '7687:7687'
+      - "7474:7474"
+      - "7687:7687"
     volumes:
-      - 'neo4j_data:/data'
-      - 'neo4j_logs:/logs'
+      - "neo4j_data:/data"
+      - "neo4j_logs:/logs"
 
 volumes:
   neo4j_data:
