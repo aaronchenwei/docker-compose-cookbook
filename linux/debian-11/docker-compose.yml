@@ -1,0 +1,8 @@
+services:
+  debian11:
+    image: debian:bullseye
+    container_name: debian-bullseye
+    restart: always
+    network_mode: host
+    tty: true
+    stdin_open: true
