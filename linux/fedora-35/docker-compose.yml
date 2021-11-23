@@ -1,7 +1,7 @@
 services:
-  debian:
-    image: debian:bookworm
-    container_name: debian-bookworm
+  fedora:
+    image: fedora:35
+    container_name: fedora35
     restart: always
     network_mode: host
     tty: true
