@@ -21,6 +21,8 @@ services:
       - KAFKA_ADVERTISED_LISTENERS=INSIDE://:9092,OUTSIDE://localhost:9094
       - KAFKA_LISTENERS=INSIDE://:9092,OUTSIDE://:9094
       - KAFKA_INTER_BROKER_LISTENER_NAME=INSIDE
+      - KAFKA_JMX_OPTS=-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=kafka -Dcom.sun.management.jmxremote.rmi.port=1099
+      - JMX_PORT=1099
 
   zookeeper:
     image: "zookeeper:3.5"
