@@ -39,3 +39,4 @@ If you don’t see a version property at all that means 1 of 2 things depending 
 Between early 2016 (Docker Compose 1.6+) and late 2020 not defining a version was considered legacy because v2 and v3 existed. Not defining a version was classified as v1 back then and it didn’t support named volumes, networking or custom build arguments.
 
 Then in Docker Compose 1.27+, Docker deprecated the version property and it’s mainly supported now for backwards compatibility. It supports everything without it.
+
