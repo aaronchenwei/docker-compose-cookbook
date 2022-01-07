@@ -1,0 +1,3 @@
+- expose Kafka listen port outside docker network
+- Kafka JMX enabled
+- Kafka Manager
