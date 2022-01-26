@@ -35,3 +35,7 @@ services:
       - KAFKA_JMX_OPTS=-Djava.rmi.server.hostname=0.0.0.0 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9999 -Dcom.sun.management.jmxremote.rmi.port=9999 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false
     depends_on:
       - zoo1
+  # jmx-exporter:
+  #   image: docker.io/bitnami/jmx-exporter
+  #   ports:
+  #     - 5556:5556
