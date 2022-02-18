@@ -1,6 +1,6 @@
 services:
   zookeeper1:
-    image: zookeeper:latest
+    image: zookeeper:3.6
     restart: always
     ports:
       - 2181:2181
@@ -19,7 +19,7 @@ services:
       - ZOO_SERVERS=server.1=zookeeper1:2888:3888;2181 server.2=zookeeper2:2888:3888;2181 server.3=zookeeper3:2888:3888;2181
 
   zookeeper2:
-    image: zookeeper
+    image: zookeeper:3.6
     restart: always
     ports:
       - 2182:2181
@@ -38,7 +38,7 @@ services:
       - ZOO_SERVERS=server.1=zookeeper1:2888:3888;2181 server.2=zookeeper2:2888:3888;2181 server.3=zookeeper3:2888:3888;2181
 
   zookeeper3:
-    image: zookeeper
+    image: zookeeper:3.6
     restart: always
     ports:
       - 2183:2181
