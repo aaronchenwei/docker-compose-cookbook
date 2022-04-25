@@ -1,6 +1,6 @@
 services:
   zookeeper:
-    image: zookeeper:latest
+    image: zookeeper:3.6
     container_name: standalone-zookeeper
     restart: unless-stopped
     # cpuset: 0,1
