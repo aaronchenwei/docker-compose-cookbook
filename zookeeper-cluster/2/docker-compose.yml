@@ -11,6 +11,8 @@ services:
       - ALLOW_ANONYMOUS_LOGIN=yes
       - ZOO_SERVER_ID=1
       - ZOO_SERVERS=0.0.0.0:2888:3888,zookeeper2:2888:3888,zookeeper3:2888:3888
+    networks:
+      - zk_network
 
   zookeeper2:
     image: docker.io/bitnami/zookeeper:3.5
@@ -22,6 +24,8 @@ services:
       - ALLOW_ANONYMOUS_LOGIN=yes
       - ZOO_SERVER_ID=2
       - ZOO_SERVERS=zookeeper1:2888:3888,0.0.0.0:2888:3888,zookeeper3:2888:3888
+    networks:
+      - zk_network
 
   zookeeper3:
     image: docker.io/bitnami/zookeeper:3.5
@@ -33,3 +37,9 @@ services:
       - ALLOW_ANONYMOUS_LOGIN=yes
       - ZOO_SERVER_ID=3
       - ZOO_SERVERS=zookeeper1:2888:3888,zookeeper2:2888:3888,0.0.0.0:2888:3888
+    networks:
+      - zk_network
+
+networks:
+  zk_network:
+    driver: bridge
