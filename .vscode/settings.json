@@ -3,7 +3,7 @@
     "[markdown]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "[yaml]": {
+    "[dockercompose]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }
