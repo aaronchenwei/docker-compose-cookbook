@@ -4,7 +4,7 @@ networks:
 
 services:
   neo4j:
-    image: bitnami/neo4j:4
+    image: bitnami/neo4j:latest
     environment:
       - NEO4J_PASSWORD=neo4j
       # - NEO4J_HOST=
