@@ -1,42 +1,25 @@
 # docker-compose-cookbook
 
-A collection of docker-compose.yml files for development environment setup. `docker-compose` version ~~1.27+~~ v2 is used.
+A collection of Docker Compose(`docker-compose.yml`) files for development environment setup.
 
-Since the release of `docker compose` [v2.1.0](https://github.com/docker/compose/releases/tag/v2.1.0), the `docker-compose.yml` files in this project will be gradually switched to use docker compose v2.
+## Prerequisite
 
-Here is the quick guide to install `docker compose` v2 on Linux. More detailed information could be found [here](https://docs.docker.com/compose/cli-command/)
+Since Docker is announcing the [General Availability of Docker Compose Version 2 (aka V2)](https://www.docker.com/blog/announcing-compose-v2-general-availability/), V2 is adopted and used for this repository.
 
-1. Run the following command to download the current stable release of Docker Compose:
+-   Docker v20.13.10+
+-   Docker Compose v2.3.3+
 
-    ```bash
-    $ mkdir -p ~/.docker/cli-plugins/
-    $ curl -SL https://github.com/docker/compose/releases/download/v2.1.0/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
-    ```
+### Docker Bridge Network
 
-    This command installs Compose V2 for the active user under `$HOME` directory. To install Docker Compose for all users on your system, replace `~/.docker/cli-plugins` with `/usr/local/lib/docker/cli-plugins`.
+In order to avoid conflict between docker virtual network and host network, a pre-defined docker bridge network is used. The subnet is `198.18.0.0/16`, which should be safe for a virutal network. `198.18.0.0/15` subnet as listed in RFC 3330 (but fully documented in RFC 2544) which is reserved for performance testing.
 
-2. Apply executable permissions to the binary:
+`docker0` is the default bridge network created upon Docker installation. However, `docker0` doesn't support name resolution. We have to create a new bridge network. Below is the command to create a bridge network with netowrk name `docker1`.
 
-    ```bash
-    $ chmod +x ~/.docker/cli-plugins/docker-compose
-    ```
-
-3. Test your installation
-
-    ```bash
-    $ docker compose version
-    Docker Compose version v2.1.0
-    ```
-
-## Note
-
-~~Since v2.x format is intended for `docker-compose` and v3.x is intended for `swarm stack deployments`, `docker-compose.yml` used in this project is based on [v2 format](https://docs.docker.com/compose/compose-file/compose-file-v2/) for development envrionment setup.~~
-
-The new [Docker Compose spec](https://github.com/compose-spec/compose-spec/blob/master/spec.md#compose-file) supports not defining a version property and is the recommended way to go moving forward. It supports both v2 and v3 properties. That makes above paragraph a little outdated.
-
-If you don’t see a version property at all that means 1 of 2 things depending on what version of docker-compose you’re using. But the TL;DR takeaway is since late 2020 (Docker Compose 1.27+) you shouldn’t define a version property.
-
-Between early 2016 (Docker Compose 1.6+) and late 2020 not defining a version was considered legacy because v2 and v3 existed. Not defining a version was classified as v1 back then and it didn’t support named volumes, networking or custom build arguments.
-
-Then in Docker Compose 1.27+, Docker deprecated the version property and it’s mainly supported now for backwards compatibility. It supports everything without it.
-
+```sh
+$ docker network create \
+    --driver=bridge \
+    --subnet=198.18.0.0/16 \
+    --gateway=198.18.0.1 \
+    -o com.docker.network.bridge.name=docker1 \
+    docker1
+```
