@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+  memgraph-platform:
+    image: memgraph/memgraph-platform:latest
+    ports:
+      - 7687:7687
+      - 7444:7444
+      - 3000:3000
+    volumes:
+      - mg_lib:/var/lib/memgraph
+      - mg_log:/var/log/memgraph
+      - mg_etc:/etc/memgraph
+    environment:
+      - TZ=Asia/Shanghai
+      - MALLOC_ARENA_MAX=2
+      - MEMGRAPH="--log-level=TRACE"
+    entrypoint: ["/usr/bin/supervisord"]
+
+volumes:
+  mg_lib:
+  mg_log:
+  mg_etc:
