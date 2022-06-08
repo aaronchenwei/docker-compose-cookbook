@@ -4,12 +4,16 @@ services:
   zookeeper:
     image: zookeeper
     hostname: zookeeper
+    networks:
+      - docker1
 
   bookie1:
     image: apache/bookkeeper
-    hostname: bookie1
-    links:
+    depends_on:
       - zookeeper
+    hostname: bookie1
+    networks:
+      - docker1
     environment:
       - JAVA_HOME=/usr/lib/jvm/java-11
       - BK_zkServers=zookeeper:2181
@@ -17,9 +21,11 @@ services:
 
   bookie2:
     image: apache/bookkeeper
-    hostname: bookie2
-    links:
+    depends_on:
       - zookeeper
+    hostname: bookie2
+    networks:
+      - docker1
     environment:
       - JAVA_HOME=/usr/lib/jvm/java-11
       - BK_zkServers=zookeeper:2181
@@ -27,9 +33,11 @@ services:
 
   bookie3:
     image: apache/bookkeeper
-    hostname: bookie3
-    links:
+    depends_on:
       - zookeeper
+    hostname: bookie3
+    networks:
+      - docker1
     environment:
       - JAVA_HOME=/usr/lib/jvm/java-11
       - BK_zkServers=zookeeper:2181
@@ -39,9 +47,15 @@ services:
     image: caiok/bookkeeper-tutorial
     depends_on:
       - zookeeper
-    links:
-      - zookeeper
+      - bookie1
+      - bookie2
       - bookie3
+    networks:
+      - docker1
     environment:
       - ZOOKEEPER_SERVERS=zookeeper:2181
       - BOOKKEEPER_SERVER=bookie3
+
+networks:
+  docker1:
+    external: true

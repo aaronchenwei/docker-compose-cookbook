@@ -2,8 +2,13 @@ version: "2"
 
 services:
   redisgraph:
-    image: docker.io/redislabs/redisgraph:2.8.13
-    container_name: redis
-    restart: unless-stopped
+    image: docker.io/redislabs/redisgraph:${TAG:-2.8.13}
+    hostname: redisgraph
+    networks:
+      - docker1
     ports:
       - "6379:6379"
+
+networks:
+  docker1:
+    external: true
