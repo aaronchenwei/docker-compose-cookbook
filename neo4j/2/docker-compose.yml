@@ -1,6 +1,4 @@
-networks:
-  neo4j-network:
-    driver: bridge
+version: "2"
 
 services:
   neo4j:
@@ -8,14 +6,12 @@ services:
     environment:
       - NEO4J_PASSWORD=neo4j
       # - NEO4J_HOST=
-    networks:
-      - neo4j-network
     ports:
-      - "7474:7474"
-      - "7473:7473"
-      - "7687:7687"
+      - 7474:7474
+      - 7473:7473
+      - 7687:7687
     volumes:
-      - "neo4j_data:/bitnami"
+      - neo4j_data:/bitnami
 
 volumes:
   neo4j_data:
