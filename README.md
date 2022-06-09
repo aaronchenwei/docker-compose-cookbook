@@ -23,3 +23,29 @@ $ docker network create \
     -o com.docker.network.bridge.name=docker1 \
     docker1
 ```
+
+In `docker-compose.ymal`, we could configure like below
+
+```yaml
+services:
+    xxx:
+        image: xxx/xxx:latest
+        networks:
+            - docker1
+
+networks:
+    docker1:
+        external: true
+```
+
+If you prefer default networks, you can also specify subnet as below.
+
+```ymal
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 198.18.0.0/16
+```
