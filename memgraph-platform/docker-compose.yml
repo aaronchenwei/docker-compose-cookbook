@@ -3,6 +3,9 @@ version: "2"
 services:
   memgraph-platform:
     image: memgraph/memgraph-platform:latest
+    hostname: memgraph-platform
+    networks:
+      - docker1
     ports:
       - 7687:7687
       - 7444:7444
@@ -21,3 +24,7 @@ volumes:
   mg_lib:
   mg_log:
   mg_etc:
+
+networks:
+  docker1:
+    external: true
