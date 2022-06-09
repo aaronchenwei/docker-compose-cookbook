@@ -3,7 +3,6 @@ version: "2"
 services:
   kafkamanager:
     image: kafkamanager/kafka-manager
-    restart: always
     network_mode: host
     environment:
       - ZK_HOSTS=localhost:2181
