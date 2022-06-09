@@ -2,13 +2,13 @@ version: "2"
 
 services:
   zookeeper:
-    image: zookeeper
+    image: docker.io/zookeeper:${TAG:-3.5}
     hostname: zookeeper
     networks:
       - docker1
 
   bookie1:
-    image: apache/bookkeeper
+    image: docker.io/apache/bookkeeper:latest
     depends_on:
       - zookeeper
     hostname: bookie1
@@ -20,7 +20,7 @@ services:
       - BK_zkLedgersRootPath=/ledgers
 
   bookie2:
-    image: apache/bookkeeper
+    image: docker.io/apache/bookkeeper:latest
     depends_on:
       - zookeeper
     hostname: bookie2
@@ -32,7 +32,7 @@ services:
       - BK_zkLedgersRootPath=/ledgers
 
   bookie3:
-    image: apache/bookkeeper
+    image: docker.io/apache/bookkeeper:latest
     depends_on:
       - zookeeper
     hostname: bookie3
@@ -44,7 +44,7 @@ services:
       - BK_zkLedgersRootPath=/ledgers
 
   dice:
-    image: caiok/bookkeeper-tutorial
+    image: docker.io/caiok/bookkeeper-tutorial:latest
     depends_on:
       - zookeeper
       - bookie1
@@ -54,7 +54,6 @@ services:
       - docker1
     environment:
       - ZOOKEEPER_SERVERS=zookeeper:2181
-      - BOOKKEEPER_SERVER=bookie3
 
 networks:
   docker1:
