@@ -13,6 +13,8 @@ Since Docker is announcing the [General Availability of Docker Compose Version 2
 
 In order to avoid conflict between docker virtual network and host network, a pre-defined docker bridge network is used for some `docker-compose.ymal` in this repo. The subnet is `198.18.0.0/16`, which should be safe for a virutal network. `198.18.0.0/15` subnet as listed in RFC 3330 (but fully documented in RFC 2544) which is reserved for performance testing.
 
+#### Extneral Docker Network
+
 `docker0` is the default bridge network created upon Docker installation. However, `docker0` doesn't support name resolution. We have to create a new bridge network. Below is the command to create a bridge network with netowrk name `docker1`.
 
 ```sh
@@ -38,6 +40,8 @@ networks:
         external: true
 ```
 
+#### Per file Docker Network
+
 If you prefer default networks, you can also specify subnet as below.
 
 ```ymal
@@ -48,4 +52,20 @@ networks:
       driver: default
       config:
       - subnet: 198.18.0.0/16
+```
+
+#### Change Docker Daemon setup
+
+`/etc/docker/daemon.json`
+
+```json
+{
+    "bip": "198.18.251.1/24",
+    "default-address-pools": [
+        {
+            "base": "198.18.252.0/22",
+            "size": 26
+        }
+    ]
+}
 ```
