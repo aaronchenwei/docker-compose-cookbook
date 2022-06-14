@@ -3,7 +3,7 @@ version: "2.4"
 services:
   mysql:
     image: bitnami/mysql:latest
-    restart: unless-stopped
+    # restart: unless-stopped
     network_mode: bridge
     ports:
       - 3306:3306
