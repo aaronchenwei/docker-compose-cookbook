@@ -4,16 +4,12 @@ services:
   zookeeper:
     image: docker.io/zookeeper:${TAG:-3.5}
     hostname: zookeeper
-    networks:
-      - docker1
 
   bookie1:
     image: docker.io/apache/bookkeeper:latest
     depends_on:
       - zookeeper
     hostname: bookie1
-    networks:
-      - docker1
     environment:
       - JAVA_HOME=/usr/lib/jvm/java-11
       - BK_zkServers=zookeeper:2181
@@ -24,8 +20,6 @@ services:
     depends_on:
       - zookeeper
     hostname: bookie2
-    networks:
-      - docker1
     environment:
       - JAVA_HOME=/usr/lib/jvm/java-11
       - BK_zkServers=zookeeper:2181
@@ -36,8 +30,6 @@ services:
     depends_on:
       - zookeeper
     hostname: bookie3
-    networks:
-      - docker1
     environment:
       - JAVA_HOME=/usr/lib/jvm/java-11
       - BK_zkServers=zookeeper:2181
@@ -50,11 +42,5 @@ services:
       - bookie1
       - bookie2
       - bookie3
-    networks:
-      - docker1
     environment:
       - ZOOKEEPER_SERVERS=zookeeper:2181
-
-networks:
-  docker1:
-    external: true
