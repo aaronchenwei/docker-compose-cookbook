@@ -9,6 +9,7 @@ services:
       FDB_COORDINATOR_PORT: ${FDB_COORDINATOR_PORT}
     ports:
       - 4500:4500/tcp
+
   fdb-server-1:
     depends_on:
       - fdb-coordinator
@@ -17,6 +18,7 @@ services:
       FDB_COORDINATOR: ${FDB_COORDINATOR}
       FDB_NETWORKING_MODE: ${FDB_NETWORKING_MODE}
       FDB_COORDINATOR_PORT: ${FDB_COORDINATOR_PORT}
+
   fdb-server-2:
     depends_on:
       - fdb-coordinator
