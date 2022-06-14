@@ -3,7 +3,7 @@ version: "2"
 services:
   go-ethereum:
     image: ethereum/client-go:stable
-    restart: unless-stopped
+    # restart: unless-stopped
     network_mode: host
     # ports:
     #   - 8545:8545
