@@ -4,11 +4,9 @@ services:
   redisgraph:
     image: docker.io/redislabs/redisgraph:${TAG:-2.8.13}
     hostname: redisgraph
-    networks:
-      - docker1
+    network_mode: bridge
     ports:
-      - "6379:6379"
-
-networks:
-  docker1:
-    external: true
+      - 6379:6379
+    environment:
+      - TZ=Asia/Shanghai
+      - MALLOC_ARENA_MAX=2
