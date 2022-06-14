@@ -3,7 +3,7 @@ version: "2"
 services:
   omnicored:
     image: "omnilayer/omnicored:0.11.0"
-    restart: unless-stopped
+    # restart: unless-stopped
     network_mode: host
     volumes:
       - ./bitcoin-data-dir:/home/bitcoin/.bitcoin
