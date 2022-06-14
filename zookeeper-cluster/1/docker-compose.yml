@@ -2,11 +2,11 @@ services:
   zookeeper1:
     image: zookeeper:${TAG:-3.6}
     hostname: zookeeper1
-    networks:
-      - docker1
     ports:
       - 2181:2181
     environment:
+      - TZ=Asia/Shanghai
+      - MALLOC_ARENA_MAX=2
       - ZOO_MAX_CLIENT_CNXNS=120
       - ZOO_AUTOPURGE_PURGEINTERVAL=24
       - ZOO_ADMINSERVER_ENABLED=false
@@ -23,11 +23,11 @@ services:
   zookeeper2:
     image: zookeeper:${TAG:-3.6}
     hostname: zookeeper2
-    networks:
-      - docker1
     ports:
       - 2182:2181
     environment:
+      - TZ=Asia/Shanghai
+      - MALLOC_ARENA_MAX=2
       - ZOO_MAX_CLIENT_CNXNS=120
       - ZOO_AUTOPURGE_PURGEINTERVAL=24
       - ZOO_ADMINSERVER_ENABLED=false
@@ -44,11 +44,11 @@ services:
   zookeeper3:
     image: zookeeper:${TAG:-3.6}
     hostname: zookeeper3
-    networks:
-      - docker1
     ports:
       - 2183:2181
     environment:
+      - TZ=Asia/Shanghai
+      - MALLOC_ARENA_MAX=2
       - ZOO_MAX_CLIENT_CNXNS=120
       - ZOO_AUTOPURGE_PURGEINTERVAL=24
       - ZOO_ADMINSERVER_ENABLED=false
@@ -61,7 +61,3 @@ services:
         -Dzookeeper.serverCnxnFactory=org.apache.zookeeper.server.NettyServerCnxnFactory
       - ZOO_MY_ID=3
       - ZOO_SERVERS=server.1=zookeeper1:2888:3888;2181 server.2=zookeeper2:2888:3888;2181 server.3=zookeeper3:2888:3888;2181
-
-networks:
-  docker1:
-    external: true
