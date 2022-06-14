@@ -1,7 +1,7 @@
 services:
   influxdb:
-    image: influxdb:1.8
-    restart: unless-stopped
+    image: docker.io/influxdb:1.8-alpine
+    # restart: unless-stopped
     container_name: influxdb-v1
     # network_mode: host
     network_mode: bridge
