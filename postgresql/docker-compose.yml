@@ -4,7 +4,7 @@ services:
   postgres:
     image: postgres:13
     container_name: postgres
-    restart: unless-stopped
+    # restart: unless-stopped
     network_mode: bridge
     ports:
       - "5432:5432"
