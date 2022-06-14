@@ -5,7 +5,7 @@ services:
     image: confluentinc/cp-kafka:5.4.7
     depends_on:
       - zookeeper
-    restart: unless-stopped
+    # restart: unless-stopped
     container_name: cp-kafka
     network_mode: host
     environment:
@@ -16,7 +16,7 @@ services:
 
   zookeeper:
     image: confluentinc/cp-zookeeper:5.4.7
-    restart: unless-stopped
+    # restart: unless-stopped
     container_name: cp-zookeeper
     network_mode: host
     environment:
