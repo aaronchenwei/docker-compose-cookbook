@@ -4,7 +4,7 @@ services:
   zookeeper:
     image: zookeeper:3.5
     container_name: standalone-zookeeper
-    restart: unless-stopped
+    # restart: unless-stopped
     ports:
       - 2181:2181
     environment:
