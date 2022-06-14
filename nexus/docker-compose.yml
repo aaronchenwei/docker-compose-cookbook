@@ -1,0 +1,12 @@
+# mkdir nexus-data && chown -R 200 nexus-data
+---
+version: "2"
+
+services:
+  nexus:
+    image: docker.io/sonatype/nexus3:latest
+    network_mode: bridge
+    ports:
+      - 8081:8081
+    volumes:
+      - ${PWD}/nexus-data:/nexus-data
