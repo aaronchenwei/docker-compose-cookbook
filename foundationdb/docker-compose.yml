@@ -18,6 +18,8 @@ services:
       FDB_COORDINATOR: ${FDB_COORDINATOR}
       FDB_NETWORKING_MODE: ${FDB_NETWORKING_MODE}
       FDB_COORDINATOR_PORT: ${FDB_COORDINATOR_PORT}
+    volumes:
+      - "fdb_data1:/var/fdb/data"
 
   fdb-server-2:
     depends_on:
@@ -28,8 +30,10 @@ services:
       FDB_NETWORKING_MODE: ${FDB_NETWORKING_MODE}
       FDB_COORDINATOR_PORT: ${FDB_COORDINATOR_PORT}
     volumes:
-      - "fdb_data:/var/fdb/data"
+      - "fdb_data2:/var/fdb/data"
 
 volumes:
-  fdb_data:
+  fdb_data1:
+    driver: local
+  fdb_data2:
     driver: local
