@@ -1,0 +1,52 @@
+version: "2"
+
+services:
+  rmqnamesrv:
+    image: docker.io/apache/rocketmq:4.9.3
+    container_name: rmqnamesrv
+    hostname: rmqnamesrv
+    ports:
+      - 9876:9876
+    volumes:
+      - ./rmqs/logs:/home/rocketmq/logs
+      - ./rmqs/store:/home/rocketmq/store
+    environment:
+      JAVA_OPT_EXT: "-Duser.home=/home/rocketmq -Xms512M -Xmx512M -Xmn128m"
+    command: ["sh", "mqnamesrv"]
+
+  rmqbroker:
+    image: docker.io/apache/rocketmq:4.9.3
+    container_name: rmqbroker
+    hostname: rmqbroker
+    ports:
+      - 10909:10909
+      - 10911:10911
+    volumes:
+      - ./rmq/logs:/home/rocketmq/logs
+      - ./rmq/store:/home/rocketmq/store
+      - ./rmq/brokerconf/broker.conf:/etc/rocketmq/broker.conf
+    environment:
+      JAVA_OPT_EXT: "-Duser.home=/home/rocketmq -Xms512M -Xmx512M -Xmn128m"
+    command:
+      [
+        "sh",
+        "mqbroker",
+        "-c",
+        "/etc/rocketmq/broker.conf",
+        "-n",
+        "rmqnamesrv:9876",
+        "autoCreateTopicEnable=true",
+      ]
+    depends_on:
+      - rmqnamesrv
+
+  rmqconsole:
+    image: styletang/rocketmq-console-ng
+    container_name: rmqconsole
+    hostname: rmqconsole
+    ports:
+      - 8180:8080
+    environment:
+      JAVA_OPTS: "-Drocketmq.namesrv.addr=rmqnamesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false"
+    depends_on:
+      - rmqnamesrv
