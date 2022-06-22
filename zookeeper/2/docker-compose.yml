@@ -1,10 +1,11 @@
-version: "2"
+version: '2'
 
 services:
   zookeeper:
     image: docker.io/bitnami/zookeeper:3.8
     container_name: single-zookeeper
     # restart: unless-stopped
+    network_mode: bridge
     ports:
       - 2181:2181
     volumes:
@@ -12,18 +13,19 @@ services:
     environment:
       - TZ=Asia/Shanghai
       - MALLOC_ARENA_MAX=2
+      #
       - ALLOW_ANONYMOUS_LOGIN=yes
       - ZOO_MAX_CLIENT_CNXNS=120
       - ZOO_ADMINSERVER_ENABLED=false
       - ZOO_AUTOPURGE_PURGEINTERVAL=24
       - ZOO_AUTOPURGE_SNAPRETAINCOUNT=3
+      - ZOO_ENABLE_ADMIN_SERVER=false
       - >
         JVMFLAGS=-Xms1024m -Xmx1024m
         -XX:+UseG1GC
         -XX:MaxGCPauseMillis=50
         -XX:+AlwaysPreTouch
         -Djute.maxbuffer=4194304
-        -Dzookeeper.admin.enableServer=false
         -Dzookeeper.serverCnxnFactory=org.apache.zookeeper.server.NettyServerCnxnFactory
 
 volumes:
