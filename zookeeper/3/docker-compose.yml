@@ -2,7 +2,7 @@ version: '2'
 
 services:
   zookeeper:
-    image: zookeeper:3.7
+    image: docker.io/zookeeper:3.7
     network_mode: bridge
     # restart: unless-stopped
     ports:
