@@ -29,5 +29,8 @@ services:
 
 volumes:
   data:
+    driver: local
   datalog:
+    driver: local
   log:
+    driver: local

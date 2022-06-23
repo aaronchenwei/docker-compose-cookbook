@@ -2,9 +2,10 @@ version: "2"
 
 services:
   zookeeper:
-    image: zookeeper:3.5
-    container_name: standalone-zookeeper
+    image: zookeeper:${TAG-3.7}
+    container_name: zookeeper
     # restart: unless-stopped
+    network_mode: bridge
     ports:
       - 2181:2181
     environment:
@@ -23,12 +24,16 @@ services:
         -XX:MaxGCPauseMillis=50
         -XX:+AlwaysPreTouch
         -Djute.maxbuffer=4194304
-        -Dzookeeper.maxCnxns=120
         -Dzookeeper.serverCnxnFactory=org.apache.zookeeper.server.NettyServerCnxnFactory
     volumes:
       - data:/data
       - datalog:/datalog
+      - log:/logs
 
 volumes:
   data:
+    driver: local
   datalog:
+    driver: local
+  log:
+    driver: local
