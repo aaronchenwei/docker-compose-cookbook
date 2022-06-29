@@ -1,0 +1,8 @@
+services:
+  ubuntu:
+    image: ubuntu:jammy
+    container_name: ubuntu-jammy
+    restart: always
+    network_mode: host
+    tty: true
+    stdin_open: true

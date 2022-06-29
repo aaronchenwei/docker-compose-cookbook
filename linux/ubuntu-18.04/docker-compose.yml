@@ -1,0 +1,8 @@
+services:
+  ubuntu:
+    image: ubuntu:bionic
+    container_name: ubuntu-bionic
+    restart: always
+    network_mode: host
+    tty: true
+    stdin_open: true
