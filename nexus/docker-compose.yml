@@ -5,6 +5,7 @@ version: "2"
 services:
   nexus:
     image: docker.io/sonatype/nexus3:latest
+    container_name: nexus
     network_mode: bridge
     ports:
       - 8081:8081
