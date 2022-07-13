@@ -1,7 +1,10 @@
+
+from https://github.com/conduktor/kafka-stack-docker-compose
+
 # Stack Version
 
-- Zookeeper version: 3.5.9
-- Kafka version: 2.8.0 (Confluent 6.2.1)
+- Zookeeper version: 3.6.3
+- Kafka version: 3.2.x (Confluent 7.2.x)
 
 # FAQ
 
