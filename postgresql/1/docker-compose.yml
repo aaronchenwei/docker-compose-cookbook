@@ -1,0 +1,17 @@
+version: "2"
+
+services:
+  postgres:
+    image: docker.io/postgres:14
+    container_name: postgres
+    network_mode: bridge
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=password123
+    volumes:
+      - postgres:/var/lib/postgres
+
+volumes:
+  postgres:
+    driver: local
