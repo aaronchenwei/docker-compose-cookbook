@@ -9,7 +9,9 @@ services:
       - "5432:5432"
     environment:
       - TZ=Asia/Shanghai
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password123
+      - POSTGRES_DB=bootcamp
     volumes:
       - postgres:/var/lib/postgres
     command: postgres -c 'shared_buffers=4GB' -c 'max_connections=200'
