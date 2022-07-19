@@ -8,6 +8,7 @@ services:
     ports:
       - "5432:5432"
     environment:
+      - TZ=Asia/Shanghai
       - POSTGRES_PASSWORD=password123
     volumes:
       - postgres:/var/lib/postgres
