@@ -4,9 +4,10 @@ version: "2"
 
 services:
   nexus:
-    image: docker.io/sonatype/nexus3:latest
+    image: docker.io/sonatype/nexus3:${TAG:-latest}
     container_name: nexus
     network_mode: bridge
+    restart: unless-stopped
     ports:
       - 8081:8081
     volumes:
