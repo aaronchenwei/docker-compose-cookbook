@@ -1,8 +1,10 @@
-version: "2.4"
+version: "2"
 
 services:
   redis:
     image: docker.io/bitnami/redis:6.2
+    container_name: bitnami-redis-server
+    network_mode: bridge
     environment:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
