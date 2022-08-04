@@ -2,10 +2,8 @@ version: "2"
 
 services:
   neo4j:
-    image: docker.io/neo4j:${TAG-4.4.8}
+    image: docker.io/neo4j:${TAG-latest}
     environment:
-      - TZ=Asia/Shanghai
-      - MALLOC_ARENA_MAX=2
       - NEO4J_AUTH=none
       # - NEO4J_AUTH=neo4j/learnneo4j
       # - NEO4J_dbms_memory_pagecache_size=31G
