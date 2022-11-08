@@ -1,0 +1,10 @@
+version: "2"
+
+services:
+  oceanbase:
+    image: docker.io/oceanbase/oceanbase-ce:4.0.0.0
+    network_mode: bridge
+    ports:
+      - 2881:2881
+    environment:
+      - TZ=Asia/Shanghai
