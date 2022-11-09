@@ -1,0 +1,37 @@
+version: "2"
+
+services:
+  kafka:
+    image: "wurstmeister/kafka:2.13-2.8.1"
+    container_name: kafka
+    network_mode: host
+    depends_on:
+      - zookeeper
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_ZOOKEEPER_CONNECT=127.0.0.1:2181
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9092
+      - KAFKA_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_JMX_OPTS=-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=kafka -Dcom.sun.management.jmxremote.rmi.port=1099
+      - JMX_PORT=9999
+
+  zookeeper:
+    image: "zookeeper:3.5"
+    container_name: zookeeper
+    network_mode: host
+
+  cruise-control:
+    image: "aaronchenwei/cruise-control:v2.5.42"
+    container_name: cruise-control
+    network_mode: host
+    depends_on:
+      - zookeeper
+      - kafka
+
+  cruise-control-ui:
+    image: "aaronchenwei/cruise-control-ui:v0.4.0"
+    container_name: cruise-control-ui
+    network_mode: host
+    depends_on:
+      - zookeeper
+      - kafka
