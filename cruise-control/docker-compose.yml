@@ -21,7 +21,9 @@ services:
     network_mode: host
 
   cruise-control:
-    image: "aaronchenwei/cruise-control:v2.5.42"
+    build:
+      context: .
+      dockerfile: cruise-control/Dockerfile
     container_name: cruise-control
     network_mode: host
     depends_on:
@@ -29,7 +31,9 @@ services:
       - kafka
 
   cruise-control-ui:
-    image: "aaronchenwei/cruise-control-ui:v0.4.0"
+    build:
+      context: .
+      dockerfile: cruise-control-ui/Dockerfile
     container_name: cruise-control-ui
     network_mode: host
     depends_on:
