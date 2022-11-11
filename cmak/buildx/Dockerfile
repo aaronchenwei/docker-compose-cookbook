@@ -6,7 +6,8 @@ LABEL GITHUB_CMAK="https://github.com/yahoo/CMAK"
 ENV ZK_HOSTS=localhost:2181
 ENV CMAK_VERSION=3.0.0.6
 
-COPY repositories /root/.sbt/
+# sbt mirror setup
+# COPY repositories /root/.sbt/
 
 RUN cd /tmp && wget https://github.com/yahoo/CMAK/archive/${CMAK_VERSION}.tar.gz && \
     tar -xzvf ${CMAK_VERSION}.tar.gz
