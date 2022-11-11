@@ -1,0 +1,27 @@
+def repoConfig = {
+  all { ArtifactRepository repo ->
+    if (repo instanceof MavenArtifactRepository) {
+      def url = repo.url.toString()
+      if (url.contains('repo1.maven.org/maven2')
+        || url.contains('jcenter.bintray.com')
+        || url.contains('maven.google.com')
+        || url.contains('repo.spring.io')
+      ) {
+        remove repo
+      }
+    }
+  }
+
+  maven { url 'https://maven.aliyun.com/repository/public/' }
+  maven { url 'https://repo.huaweicloud.com/repository/maven/' }
+  maven { url 'https://mirrors.cloud.tencent.com/nexus/repository/maven-public/' }
+
+}
+
+allprojects {
+  buildscript {
+    repositories repoConfig
+  }
+
+  repositories repoConfig
+}
