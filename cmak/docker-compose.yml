@@ -1,8 +1,15 @@
-version: "2"
+version: "3.6"
 
 services:
-  kafkamanager:
-    image: kafkamanager/kafka-manager
-    network_mode: host
+  zk:
+    image: zookeeper:latest
+    restart: always
     environment:
-      - ZK_HOSTS=localhost:2181
+      ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181
+  cmak:
+    image: ghcr.io/eshepelyuk/dckr/cmak-3.0.0.5:latest
+    restart: always
+    ports:
+      - "9000:9000"
+    environment:
+      ZK_HOSTS: "zk:2181"
