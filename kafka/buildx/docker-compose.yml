@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  kafka:
+    build:
+      context: .
+      x-bake:
+        tags::
+          - aaronchenwei/kafka:latest
+          - aaronchenwei/kafka:2.4.1.59
+        output: type=local,dest=./
