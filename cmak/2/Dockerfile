@@ -1,7 +1,9 @@
 # syntax=docker/dockerfile:1.4
-FROM eclipse-temurin:11-jre as build
+FROM debian:bullseye as build
 
 ENV CMAK_VERSION 3.0.0.6
+
+RUN apt-get update && apt-get install -y zip unzip curl
 
 RUN <<EOF
     set -e
