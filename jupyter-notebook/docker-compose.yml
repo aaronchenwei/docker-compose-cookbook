@@ -9,4 +9,5 @@ services:
       - 8888:8888
       - "4040-4080:4040-4080"
     volumes:
-      - ./notebooks:/home/jovyan/work/notebooks/
+      - ./work:/home/jovyan/work
+      - ./data:/home/jovyan/data
