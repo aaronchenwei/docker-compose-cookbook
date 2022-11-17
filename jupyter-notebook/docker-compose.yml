@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  # jupyterlab with pyspark
+  jupyter:
+    image: jupyter/pyspark-notebook:latest
+    ports:
+      - 8888:8888
+      - 4040:4040
