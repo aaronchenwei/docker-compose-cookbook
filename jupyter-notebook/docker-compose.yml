@@ -4,6 +4,7 @@ services:
   # jupyterlab with pyspark
   jupyter:
     image: jupyter/pyspark-notebook:latest
+    host: jupyter
     ports:
       - 8888:8888
       - "4040-4080:4040-4080"
