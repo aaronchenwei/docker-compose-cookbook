@@ -1,0 +1,600 @@
+<?xml version='1.0' ?>
+<graphml xmlns='http://graphml.graphdrawing.org/xmlns'>
+  <key id='labelV' for='node' attr.name='labelV' attr.type='string'></key>
+  <key id='type' for='node' attr.name='type' attr.type='string'></key>
+  <key id='group' for='node' attr.name='group' attr.type='string'></key>
+  <key id='name' for='node' attr.name='name' attr.type='string'></key>
+  <key id='version' for='node' attr.name='version' attr.type='string'></key>
+  
+  <key id='labelE' for='edge' attr.name='labelE' attr.type='string'></key>
+
+<graph id='tools' edgedefault='directed'>
+
+  <node id='b38ca27d0bd98a885d629be3b56afc3a'>
+    <data key='labelV'>:beam-by-example:0.1</data>
+    <data key='type'>app</data>
+    <data key='name'>beam-by-example</data>
+    <data key='group'>org</data>
+    <data key='group'>0.1</data>
+  </node>
+  <node id='3e3e8726ba27d6942bac2693dcddf780'>
+    <data key='labelV'>org.slf4j:slf4j-api:1.7.36</data>
+    <data key='type'>lib</data>
+    <data key='name'>slf4j-api</data>
+    <data key='group'>org.slf4j</data>
+    <data key='group'>1.7.36</data>
+  </node>
+  <node id='5f321ef02d6567ff41a975441fb3dd30'>
+    <data key='labelV'>org.slf4j:log4j-over-slf4j:1.7.36</data>
+    <data key='type'>lib</data>
+    <data key='name'>log4j-over-slf4j</data>
+    <data key='group'>org.slf4j</data>
+    <data key='group'>1.7.36</data>
+  </node>
+  <node id='cf61609f531a5f2533069c150316bb8d'>
+    <data key='labelV'>ch.qos.logback:logback-classic:1.2.11</data>
+    <data key='type'>lib</data>
+    <data key='name'>logback-classic</data>
+    <data key='group'>ch.qos.logback</data>
+    <data key='group'>1.2.11</data>
+  </node>
+  <node id='564a849aa48b54599fd8182ec55db5ad'>
+    <data key='labelV'>org.apache.beam:beam-sdks-java-core:2.41.0</data>
+    <data key='type'>lib</data>
+    <data key='name'>beam-sdks-java-core</data>
+    <data key='group'>org.apache.beam</data>
+    <data key='group'>2.41.0</data>
+  </node>
+  <node id='06617afff2db1d11838591575f418096'>
+    <data key='labelV'>org.apache.beam:beam-runners-direct-java:2.41.0</data>
+    <data key='type'>lib</data>
+    <data key='name'>beam-runners-direct-java</data>
+    <data key='group'>org.apache.beam</data>
+    <data key='group'>2.41.0</data>
+  </node>
+  <node id='56111b7583287713a98dad3631d42dc0'>
+    <data key='labelV'>org.apache.beam:beam-sdks-java-io-common:2.41.0</data>
+    <data key='type'>lib</data>
+    <data key='name'>beam-sdks-java-io-common</data>
+    <data key='group'>org.apache.beam</data>
+    <data key='group'>2.41.0</data>
+  </node>
+  <node id='59d7558085041fcee43e90991d0cc562'>
+    <data key='labelV'>org.apache.beam:beam-sdks-java-io-parquet:2.41.0</data>
+    <data key='type'>lib</data>
+    <data key='name'>beam-sdks-java-io-parquet</data>
+    <data key='group'>org.apache.beam</data>
+    <data key='group'>2.41.0</data>
+  </node>
+  <node id='469eedb68d3d6566e6ca47a364db7bfe'>
+    <data key='labelV'>org.apache.beam:beam-sdks-java-io-hadoop-file-system:2.41.0</data>
+    <data key='type'>lib</data>
+    <data key='name'>beam-sdks-java-io-hadoop-file-system</data>
+    <data key='group'>org.apache.beam</data>
+    <data key='group'>2.41.0</data>
+  </node>
+  <node id='fb197d1aff8c55144683e6ff43b858c4'>
+    <data key='labelV'>org.apache.beam:beam-sdks-java-io-hadoop-common:2.41.0</data>
+    <data key='type'>lib</data>
+    <data key='name'>beam-sdks-java-io-hadoop-common</data>
+    <data key='group'>org.apache.beam</data>
+    <data key='group'>2.41.0</data>
+  </node>
+  <node id='fce10dd7c7540e8e3756824bce8696c8'>
+    <data key='labelV'>org.apache.hadoop:hadoop-client:2.10.1</data>
+    <data key='type'>lib</data>
+    <data key='name'>hadoop-client</data>
+    <data key='group'>org.apache.hadoop</data>
+    <data key='group'>2.10.1</data>
+  </node>
+  <node id='e878f9fa60b26463c873bdbdd3a5c9b4'>
+    <data key='labelV'>:buildgraph:0.1.2</data>
+    <data key='type'>app</data>
+    <data key='name'>buildgraph</data>
+    <data key='group'>org</data>
+    <data key='group'>0.1.2</data>
+  </node>
+  <node id='abb42d0fb7fa9f385c7c928ad68db014'>
+    <data key='labelV'>org.springframework.boot:spring-boot-starter-graphql:2.7.4</data>
+    <data key='type'>lib</data>
+    <data key='name'>spring-boot-starter-graphql</data>
+    <data key='group'>org.springframework.boot</data>
+    <data key='group'>2.7.4</data>
+  </node>
+  <node id='fe935bd733a3e4666b48c40786914fed'>
+    <data key='labelV'>org.springframework.boot:spring-boot-starter-webflux:2.7.4</data>
+    <data key='type'>lib</data>
+    <data key='name'>spring-boot-starter-webflux</data>
+    <data key='group'>org.springframework.boot</data>
+    <data key='group'>2.7.4</data>
+  </node>
+  <node id='d0e2176d1d2fe9be815768347d415feb'>
+    <data key='labelV'>org.springframework.boot:spring-boot-starter-actuator:2.7.4</data>
+    <data key='type'>lib</data>
+    <data key='name'>spring-boot-starter-actuator</data>
+    <data key='group'>org.springframework.boot</data>
+    <data key='group'>2.7.4</data>
+  </node>
+  <node id='6fde1c1ff4bcd5c413e03fa8a0abf761'>
+    <data key='labelV'>org.springframework.boot:spring-boot-starter:2.7.4</data>
+    <data key='type'>lib</data>
+    <data key='name'>spring-boot-starter</data>
+    <data key='group'>org.springframework.boot</data>
+    <data key='group'>2.7.4</data>
+  </node>
+  <node id='5572a14da3fbdef983a9c19920f4099c'>
+    <data key='labelV'>com.datastax.oss:java-driver-core:4.15.0</data>
+    <data key='type'>lib</data>
+    <data key='name'>java-driver-core</data>
+    <data key='group'>com.datastax.oss</data>
+    <data key='group'>4.15.0</data>
+  </node>
+  <node id='3b9b55a9d36bce0b77e1615a1006ead7'>
+    <data key='labelV'>com.datastax.oss:java-driver-query-builder:4.15.0</data>
+    <data key='type'>lib</data>
+    <data key='name'>java-driver-query-builder</data>
+    <data key='group'>com.datastax.oss</data>
+    <data key='group'>4.15.0</data>
+  </node>
+  <node id='4a08e35c4d1747631726121e9f1d6084'>
+    <data key='labelV'>com.datastax.oss:java-driver-mapper-runtime:4.15.0</data>
+    <data key='type'>lib</data>
+    <data key='name'>java-driver-mapper-runtime</data>
+    <data key='group'>com.datastax.oss</data>
+    <data key='group'>4.15.0</data>
+  </node>
+  <node id='19cf97e2cfa3809427145175318d645f'>
+    <data key='labelV'>org.redisson:redisson:3.17.7</data>
+    <data key='type'>lib</data>
+    <data key='name'>redisson</data>
+    <data key='group'>org.redisson</data>
+    <data key='group'>3.17.7</data>
+  </node>
+  <node id='d2319ce30cd70effc61585f11511e321'>
+    <data key='labelV'>com.fasterxml.jackson.core:jackson-core:2.13.4</data>
+    <data key='type'>lib</data>
+    <data key='name'>jackson-core</data>
+    <data key='group'>com.fasterxml.jackson.core</data>
+    <data key='group'>2.13.4</data>
+  </node>
+  <node id='5d9e266e6460f25c09b39e3158ea77e2'>
+    <data key='labelV'>com.fasterxml.jackson.core:jackson-databind:2.13.4</data>
+    <data key='type'>lib</data>
+    <data key='name'>jackson-databind</data>
+    <data key='group'>com.fasterxml.jackson.core</data>
+    <data key='group'>2.13.4</data>
+  </node>
+  <node id='be9473e3931b90f34bde818e64a40110'>
+    <data key='labelV'>:kafka-streams:0.1</data>
+    <data key='type'>app</data>
+    <data key='name'>kafka-streams</data>
+    <data key='group'>org</data>
+    <data key='group'>0.1</data>
+  </node>
+  <node id='cc9068337d347afe7b48924b34039b1d'>
+    <data key='labelV'>org.scala-lang:scala-library:2.13.6</data>
+    <data key='type'>lib</data>
+    <data key='name'>scala-library</data>
+    <data key='group'>org.scala-lang</data>
+    <data key='group'>2.13.6</data>
+  </node>
+  <node id='c143c052081843804c4d29afce7ab762'>
+    <data key='labelV'>org.apache.kafka:kafka-streams-scala_2.13:2.8.0</data>
+    <data key='type'>lib</data>
+    <data key='name'>kafka-streams-scala_2.13</data>
+    <data key='group'>org.apache.kafka</data>
+    <data key='group'>2.8.0</data>
+  </node>
+  <node id='e51e41897c9a0b0894b60899b0415ba0'>
+    <data key='labelV'>com.typesafe:config:1.4.1</data>
+    <data key='type'>lib</data>
+    <data key='name'>config</data>
+    <data key='group'>com.typesafe</data>
+    <data key='group'>1.4.1</data>
+  </node>
+  <node id='1592c53bc1cd1121dc4e72ca54e205af'>
+    <data key='labelV'>com.opencsv:opencsv:5.4</data>
+    <data key='type'>lib</data>
+    <data key='name'>opencsv</data>
+    <data key='group'>com.opencsv</data>
+    <data key='group'>5.4</data>
+  </node>
+  <node id='c6457dbb2de6016be91f67836809853a'>
+    <data key='labelV'>com.fasterxml.jackson.module:jackson-module-scala_2.13:2.12.2</data>
+    <data key='type'>lib</data>
+    <data key='name'>jackson-module-scala_2.13</data>
+    <data key='group'>com.fasterxml.jackson.module</data>
+    <data key='group'>2.12.2</data>
+  </node>
+  <node id='b4619ea0e798f2fb36c2a90c07901816'>
+    <data key='labelV'>com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.12.2</data>
+    <data key='type'>lib</data>
+    <data key='name'>jackson-datatype-jsr310</data>
+    <data key='group'>com.fasterxml.jackson.datatype</data>
+    <data key='group'>2.12.2</data>
+  </node>
+  <node id='48160fddadec21c30defef52862820f9'>
+    <data key='labelV'>:starter-java:0.1</data>
+    <data key='type'>app</data>
+    <data key='name'>starter-java</data>
+    <data key='group'>org</data>
+    <data key='group'>0.1</data>
+  </node>
+  <node id='5827c3d7d4350e9bc347f85ce3dbdb7d'>
+    <data key='labelV'>org.springframework.boot:spring-boot-starter-webflux:2.6.6</data>
+    <data key='type'>lib</data>
+    <data key='name'>spring-boot-starter-webflux</data>
+    <data key='group'>org.springframework.boot</data>
+    <data key='group'>2.6.6</data>
+  </node>
+  <node id='1b6786f510e3b5e1b2e42431feb3398f'>
+    <data key='labelV'>org.springframework.boot:spring-boot-starter-tomcat:2.6.6</data>
+    <data key='type'>lib</data>
+    <data key='name'>spring-boot-starter-tomcat</data>
+    <data key='group'>org.springframework.boot</data>
+    <data key='group'>2.6.6</data>
+  </node>
+  <node id='5504db3bba89dba9fddbf70a66f4d457'>
+    <data key='labelV'>org.springframework.boot:spring-boot-starter:2.6.6</data>
+    <data key='type'>lib</data>
+    <data key='name'>spring-boot-starter</data>
+    <data key='group'>org.springframework.boot</data>
+    <data key='group'>2.6.6</data>
+  </node>
+  <node id='4f07041e419c6f623de79c455f34857f'>
+    <data key='labelV'>org.springframework.boot:spring-boot-starter-actuator:2.6.6</data>
+    <data key='type'>lib</data>
+    <data key='name'>spring-boot-starter-actuator</data>
+    <data key='group'>org.springframework.boot</data>
+    <data key='group'>2.6.6</data>
+  </node>
+  <node id='41917da74e26b4441a9afa1dbe64d989'>
+    <data key='labelV'>org.springframework.boot:spring-boot-starter-aop:2.6.6</data>
+    <data key='type'>lib</data>
+    <data key='name'>spring-boot-starter-aop</data>
+    <data key='group'>org.springframework.boot</data>
+    <data key='group'>2.6.6</data>
+  </node>
+  <node id='f30d18cec67e5c4e7e23d100a30b73e3'>
+    <data key='labelV'>org.springframework.boot:spring-boot-starter-logging:2.6.6</data>
+    <data key='type'>lib</data>
+    <data key='name'>spring-boot-starter-logging</data>
+    <data key='group'>org.springframework.boot</data>
+    <data key='group'>2.6.6</data>
+  </node>
+  <node id='342339dc69f51e4ccc5f3852695c5c4a'>
+    <data key='labelV'>net.logstash.logback:logstash-logback-encoder:7.0.1</data>
+    <data key='type'>lib</data>
+    <data key='name'>logstash-logback-encoder</data>
+    <data key='group'>net.logstash.logback</data>
+    <data key='group'>7.0.1</data>
+  </node>
+  <node id='182c27f15b77f083cf857225c8ebcaa4'>
+    <data key='labelV'>io.micrometer:micrometer-registry-prometheus:1.8.4</data>
+    <data key='type'>lib</data>
+    <data key='name'>micrometer-registry-prometheus</data>
+    <data key='group'>io.micrometer</data>
+    <data key='group'>1.8.4</data>
+  </node>
+  <node id='d265de2617534962b999fd712bf7e9e5'>
+    <data key='labelV'>io.projectreactor.addons:reactor-adapter:3.3.8.RELEASE</data>
+    <data key='type'>lib</data>
+    <data key='name'>reactor-adapter</data>
+    <data key='group'>io.projectreactor.addons</data>
+    <data key='group'>3.3.8.RELEASE</data>
+  </node>
+  <node id='0d442622468fb27cff7e1b2da6e23fcb'>
+    <data key='labelV'>org.yaml:snakeyaml:1.30</data>
+    <data key='type'>lib</data>
+    <data key='name'>snakeyaml</data>
+    <data key='group'>org.yaml</data>
+    <data key='group'>1.30</data>
+  </node>
+  <node id='be48fa173ac2e8c1f3ef76ff49842494'>
+    <data key='labelV'>io.r2dbc:r2dbc-spi:0.8.6.RELEASE</data>
+    <data key='type'>lib</data>
+    <data key='name'>r2dbc-spi</data>
+    <data key='group'>io.r2dbc</data>
+    <data key='group'>0.8.6.RELEASE</data>
+  </node>
+  <node id='6005b7dd4a3da54c999162efcd420f95'>
+    <data key='labelV'>io.r2dbc:r2dbc-postgresql:0.8.6.RELEASE</data>
+    <data key='type'>lib</data>
+    <data key='name'>r2dbc-postgresql</data>
+    <data key='group'>io.r2dbc</data>
+    <data key='group'>0.8.6.RELEASE</data>
+  </node>
+  <node id='fda04f898cb5445c3ca50b13cbd61b5e'>
+    <data key='labelV'>io.r2dbc:r2dbc-h2:0.8.4.RELEASE</data>
+    <data key='type'>lib</data>
+    <data key='name'>r2dbc-h2</data>
+    <data key='group'>io.r2dbc</data>
+    <data key='group'>0.8.4.RELEASE</data>
+  </node>
+  <node id='ae43938b5db30f8627aeba382fe16757'>
+    <data key='labelV'>org.springframework.data:spring-data-r2dbc:1.4.3</data>
+    <data key='type'>lib</data>
+    <data key='name'>spring-data-r2dbc</data>
+    <data key='group'>org.springframework.data</data>
+    <data key='group'>1.4.3</data>
+  </node>
+  <node id='24129b1712a09626a2a6e356711e514a'>
+    <data key='labelV'>io.github.skhatri:mounted-secrets-client:0.2.5</data>
+    <data key='type'>lib</data>
+    <data key='name'>mounted-secrets-client</data>
+    <data key='group'>io.github.skhatri</data>
+    <data key='group'>0.2.5</data>
+  </node>
+  <node id='729c8107a79e2230b9577c14778678d1'>
+    <data key='labelV'>com.google.protobuf:protobuf-java:3.19.4</data>
+    <data key='type'>lib</data>
+    <data key='name'>protobuf-java</data>
+    <data key='group'>com.google.protobuf</data>
+    <data key='group'>3.19.4</data>
+  </node>
+  <node id='a1f79e85db6066b513d5bc8ae05524e1'>
+    <data key='labelV'>com.google.protobuf:protobuf-java-util:3.19.4</data>
+    <data key='type'>lib</data>
+    <data key='name'>protobuf-java-util</data>
+    <data key='group'>com.google.protobuf</data>
+    <data key='group'>3.19.4</data>
+  </node>
+  <node id='ac3e474e36a0dc9cd512e53c99d34d95'>
+    <data key='labelV'>io.grpc:grpc-protobuf:1.42.1</data>
+    <data key='type'>lib</data>
+    <data key='name'>grpc-protobuf</data>
+    <data key='group'>io.grpc</data>
+    <data key='group'>1.42.1</data>
+  </node>
+  <node id='a44914b5ab7afaba0ed547af31bc7d01'>
+    <data key='labelV'>io.grpc:grpc-stub:1.42.1</data>
+    <data key='type'>lib</data>
+    <data key='name'>grpc-stub</data>
+    <data key='group'>io.grpc</data>
+    <data key='group'>1.42.1</data>
+  </node>
+  <node id='f10c5614b991e2b6a620e01171212d69'>
+    <data key='labelV'>io.grpc:grpc-services:1.42.1</data>
+    <data key='type'>lib</data>
+    <data key='name'>grpc-services</data>
+    <data key='group'>io.grpc</data>
+    <data key='group'>1.42.1</data>
+  </node>
+  <node id='f43326cf17faff5ea2da919dde6acf7d'>
+    <data key='labelV'>io.grpc:grpc-netty-shaded:1.42.1</data>
+    <data key='type'>lib</data>
+    <data key='name'>grpc-netty-shaded</data>
+    <data key='group'>io.grpc</data>
+    <data key='group'>1.42.1</data>
+  </node>
+  <node id='64c1a36526ca4cdceb2e8ea1f51cff77'>
+    <data key='labelV'>org.apache.tomcat:annotations-api:6.0.53</data>
+    <data key='type'>lib</data>
+    <data key='name'>annotations-api</data>
+    <data key='group'>org.apache.tomcat</data>
+    <data key='group'>6.0.53</data>
+  </node>
+  <node id='6ca8803d46f546c801293b3f2a9bc21f'>
+    <data key='labelV'>:spark-delta-by-example:0.1</data>
+    <data key='type'>app</data>
+    <data key='name'>spark-delta-by-example</data>
+    <data key='group'>org</data>
+    <data key='group'>0.1</data>
+  </node>
+  <node id='96c1b97de10ce89f7e9a1ea074a0c912'>
+    <data key='labelV'>org.scala-lang:scala-library:2.12.8</data>
+    <data key='type'>lib</data>
+    <data key='name'>scala-library</data>
+    <data key='group'>org.scala-lang</data>
+    <data key='group'>2.12.8</data>
+  </node>
+  <node id='6fe67262640441687b271a8dd0d7d000'>
+    <data key='labelV'>org.apache.spark:spark-core_2.12:3.3.0</data>
+    <data key='type'>lib</data>
+    <data key='name'>spark-core_2.12</data>
+    <data key='group'>org.apache.spark</data>
+    <data key='group'>3.3.0</data>
+  </node>
+  <node id='4bacb4e9e999468935d2fbe9827ec657'>
+    <data key='labelV'>org.apache.spark:spark-sql_2.12:3.3.0</data>
+    <data key='type'>lib</data>
+    <data key='name'>spark-sql_2.12</data>
+    <data key='group'>org.apache.spark</data>
+    <data key='group'>3.3.0</data>
+  </node>
+  <node id='43cf3f2f5932e91e05f0f7ea6182d2ff'>
+    <data key='labelV'>io.delta:delta-core_2.12:2.0.0</data>
+    <data key='type'>lib</data>
+    <data key='name'>delta-core_2.12</data>
+    <data key='group'>io.delta</data>
+    <data key='group'>2.0.0</data>
+  </node>
+  <node id='5357d8608b086fad4e3279ff87587df8'>
+    <data key='labelV'>org.apache.hadoop:hadoop-aws:3.3.4</data>
+    <data key='type'>lib</data>
+    <data key='name'>hadoop-aws</data>
+    <data key='group'>org.apache.hadoop</data>
+    <data key='group'>3.3.4</data>
+  </node>
+  <node id='b7609e92b6ccfe6fddb0c1b3ed30aeda'>
+    <data key='labelV'>org.elasticsearch:elasticsearch-spark-30_2.12:7.17.5</data>
+    <data key='type'>lib</data>
+    <data key='name'>elasticsearch-spark-30_2.12</data>
+    <data key='group'>org.elasticsearch</data>
+    <data key='group'>7.17.5</data>
+  </node>
+  <edge id='1' source='b38ca27d0bd98a885d629be3b56afc3a' target='3e3e8726ba27d6942bac2693dcddf780'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='2' source='b38ca27d0bd98a885d629be3b56afc3a' target='5f321ef02d6567ff41a975441fb3dd30'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='3' source='b38ca27d0bd98a885d629be3b56afc3a' target='cf61609f531a5f2533069c150316bb8d'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='4' source='b38ca27d0bd98a885d629be3b56afc3a' target='564a849aa48b54599fd8182ec55db5ad'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='5' source='b38ca27d0bd98a885d629be3b56afc3a' target='06617afff2db1d11838591575f418096'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='6' source='b38ca27d0bd98a885d629be3b56afc3a' target='56111b7583287713a98dad3631d42dc0'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='7' source='b38ca27d0bd98a885d629be3b56afc3a' target='59d7558085041fcee43e90991d0cc562'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='8' source='b38ca27d0bd98a885d629be3b56afc3a' target='469eedb68d3d6566e6ca47a364db7bfe'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='9' source='b38ca27d0bd98a885d629be3b56afc3a' target='fb197d1aff8c55144683e6ff43b858c4'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='10' source='b38ca27d0bd98a885d629be3b56afc3a' target='fce10dd7c7540e8e3756824bce8696c8'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='11' source='e878f9fa60b26463c873bdbdd3a5c9b4' target='abb42d0fb7fa9f385c7c928ad68db014'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='12' source='e878f9fa60b26463c873bdbdd3a5c9b4' target='fe935bd733a3e4666b48c40786914fed'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='13' source='e878f9fa60b26463c873bdbdd3a5c9b4' target='d0e2176d1d2fe9be815768347d415feb'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='14' source='e878f9fa60b26463c873bdbdd3a5c9b4' target='6fde1c1ff4bcd5c413e03fa8a0abf761'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='15' source='e878f9fa60b26463c873bdbdd3a5c9b4' target='5572a14da3fbdef983a9c19920f4099c'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='16' source='e878f9fa60b26463c873bdbdd3a5c9b4' target='3b9b55a9d36bce0b77e1615a1006ead7'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='17' source='e878f9fa60b26463c873bdbdd3a5c9b4' target='4a08e35c4d1747631726121e9f1d6084'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='18' source='e878f9fa60b26463c873bdbdd3a5c9b4' target='19cf97e2cfa3809427145175318d645f'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='19' source='e878f9fa60b26463c873bdbdd3a5c9b4' target='d2319ce30cd70effc61585f11511e321'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='20' source='e878f9fa60b26463c873bdbdd3a5c9b4' target='5d9e266e6460f25c09b39e3158ea77e2'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='21' source='be9473e3931b90f34bde818e64a40110' target='cc9068337d347afe7b48924b34039b1d'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='22' source='be9473e3931b90f34bde818e64a40110' target='c143c052081843804c4d29afce7ab762'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='23' source='be9473e3931b90f34bde818e64a40110' target='e51e41897c9a0b0894b60899b0415ba0'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='24' source='be9473e3931b90f34bde818e64a40110' target='1592c53bc1cd1121dc4e72ca54e205af'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='25' source='be9473e3931b90f34bde818e64a40110' target='c6457dbb2de6016be91f67836809853a'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='26' source='be9473e3931b90f34bde818e64a40110' target='b4619ea0e798f2fb36c2a90c07901816'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='27' source='48160fddadec21c30defef52862820f9' target='5827c3d7d4350e9bc347f85ce3dbdb7d'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='28' source='48160fddadec21c30defef52862820f9' target='1b6786f510e3b5e1b2e42431feb3398f'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='29' source='48160fddadec21c30defef52862820f9' target='5504db3bba89dba9fddbf70a66f4d457'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='30' source='48160fddadec21c30defef52862820f9' target='4f07041e419c6f623de79c455f34857f'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='31' source='48160fddadec21c30defef52862820f9' target='41917da74e26b4441a9afa1dbe64d989'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='32' source='48160fddadec21c30defef52862820f9' target='f30d18cec67e5c4e7e23d100a30b73e3'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='33' source='48160fddadec21c30defef52862820f9' target='342339dc69f51e4ccc5f3852695c5c4a'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='34' source='48160fddadec21c30defef52862820f9' target='182c27f15b77f083cf857225c8ebcaa4'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='35' source='48160fddadec21c30defef52862820f9' target='d265de2617534962b999fd712bf7e9e5'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='36' source='48160fddadec21c30defef52862820f9' target='0d442622468fb27cff7e1b2da6e23fcb'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='37' source='48160fddadec21c30defef52862820f9' target='be48fa173ac2e8c1f3ef76ff49842494'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='38' source='48160fddadec21c30defef52862820f9' target='6005b7dd4a3da54c999162efcd420f95'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='39' source='48160fddadec21c30defef52862820f9' target='fda04f898cb5445c3ca50b13cbd61b5e'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='40' source='48160fddadec21c30defef52862820f9' target='ae43938b5db30f8627aeba382fe16757'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='41' source='48160fddadec21c30defef52862820f9' target='24129b1712a09626a2a6e356711e514a'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='42' source='48160fddadec21c30defef52862820f9' target='729c8107a79e2230b9577c14778678d1'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='43' source='48160fddadec21c30defef52862820f9' target='a1f79e85db6066b513d5bc8ae05524e1'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='44' source='48160fddadec21c30defef52862820f9' target='ac3e474e36a0dc9cd512e53c99d34d95'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='45' source='48160fddadec21c30defef52862820f9' target='a44914b5ab7afaba0ed547af31bc7d01'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='46' source='48160fddadec21c30defef52862820f9' target='f10c5614b991e2b6a620e01171212d69'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='47' source='48160fddadec21c30defef52862820f9' target='f43326cf17faff5ea2da919dde6acf7d'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='48' source='48160fddadec21c30defef52862820f9' target='64c1a36526ca4cdceb2e8ea1f51cff77'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='49' source='6ca8803d46f546c801293b3f2a9bc21f' target='96c1b97de10ce89f7e9a1ea074a0c912'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='50' source='6ca8803d46f546c801293b3f2a9bc21f' target='6fe67262640441687b271a8dd0d7d000'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='51' source='6ca8803d46f546c801293b3f2a9bc21f' target='4bacb4e9e999468935d2fbe9827ec657'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='52' source='6ca8803d46f546c801293b3f2a9bc21f' target='43cf3f2f5932e91e05f0f7ea6182d2ff'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='53' source='6ca8803d46f546c801293b3f2a9bc21f' target='5357d8608b086fad4e3279ff87587df8'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='54' source='6ca8803d46f546c801293b3f2a9bc21f' target='3e3e8726ba27d6942bac2693dcddf780'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='55' source='6ca8803d46f546c801293b3f2a9bc21f' target='5f321ef02d6567ff41a975441fb3dd30'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='56' source='6ca8803d46f546c801293b3f2a9bc21f' target='cf61609f531a5f2533069c150316bb8d'>
+    <data key='labelE'>uses</data>
+  </edge>
+  <edge id='57' source='6ca8803d46f546c801293b3f2a9bc21f' target='b7609e92b6ccfe6fddb0c1b3ed30aeda'>
+    <data key='labelE'>uses</data>
+  </edge>
+
+</graph>
+</graphml>
+
