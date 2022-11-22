@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   tinkerpop:
-    image: tinkerpop/gremlin-server:3.4.9
+    image: tinkerpop/gremlin-server:3.6.1
     environment: []
     volumes:
       - ./tinkergraph-empty.properties:/opt/gremlin-server/conf/tinkergraph-empty.properties

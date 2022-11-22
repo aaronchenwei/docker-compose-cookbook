@@ -2,7 +2,9 @@ FROM python:3.8.6
 
 # RUN pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple
 
-RUN pip install --upgrade pip && pip install setuptools psycopg2-binary sqlalchemy pyhive elasticsearch-dbapi ibm_db_sa jupyter graph-notebook pandas numpy sklearn scipy boto3 graphviz jupyter_http_over_ws dask pyarrow modin
+# RUN pip install --upgrade pip && pip install setuptools psycopg2-binary sqlalchemy pyhive elasticsearch-dbapi ibm_db_sa jupyter graph-notebook pandas numpy sklearn scipy boto3 graphviz jupyter_http_over_ws dask pyarrow modin
+COPY requirements.txt /opt/app/requirements.txt
+RUN pip install --upgrade pip && pip install -r /opt/app/requirements.txt
 
 # RUN jupyter nbextension install --py --sys-prefix graph_notebook.widgets
 RUN jupyter nbextension enable  --py --sys-prefix graph_notebook.widgets
