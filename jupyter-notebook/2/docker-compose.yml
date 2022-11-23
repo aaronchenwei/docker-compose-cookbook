@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  tinkerpop:
+    image: tinkerpop/gremlin-server:3.6.1
+    environment: []
+    volumes:
+      - ./tinkergraph-empty.properties:/opt/gremlin-server/conf/tinkergraph-empty.properties
+      - ./gremlin-server.yaml:/opt/gremlin-server/conf/gremlin-server.yaml
+      - ./gremlin.sh:/docker-entrypoint.sh
+      - ./notebooks/air-routes.graphml:/tmp/air-routes.graphml
+      - ./notebooks/lib-dependencies.graphml:/tmp/lib-dependencies.graphml
+    ports:
+      - "8182:8182"
+    command: "/opt/gremlin-server/conf/gremlin-server.yaml"
+    container_name: "tinkerpop"
+  jupyter:
+    image: skhatri/notebook:latest
+    build: .
+    restart: always
+    depends_on:
+      - tinkerpop
+    environment: []
+    volumes:
+      - ./notebooks:/opt/app/notebook/notebooks
+    ports:
+      - "8888:8888"

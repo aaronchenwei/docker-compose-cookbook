@@ -1,0 +1,3 @@
+rdflib==5.0.0
+markupsafe==2.0.1
+graph-notebook==3.6.2
