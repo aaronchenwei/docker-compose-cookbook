@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+  spark-master:
+    image: docker.io/bitnami/spark:3.3.1
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+    ports:
+      - '8080:8080'
+  spark-worker:
+    image: docker.io/bitnami/spark:3.3.1
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_WORKER_MEMORY=2G
+      - SPARK_WORKER_CORES=2
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+  streamsets-datacollector:
+    image: docker.io/streamsets/datacollector
+    container_name: streamsets-dc
+    restart: on-failure
+    ports:
+      - '18630:18630'
+  streamsets-transformer:
+    image: docker.io/streamsets/transformer
+    container_name: streamsets-transformer
+    restart: on-failure
+    ports:
+      - '19630:19630'
+  jupyter-notebook:
+    build:
+      context: ./jupyter
+      dockerfile: Dockerfile
+    image: aaronchenwei/pyspark-notebook:spark-3.3.1
+    container_name: jupyter-notebook
+    ports:
+      - '8888:8888'
+  zeppelin-notebook:
+    build:
+      context: ./zeppelin
+      dockerfile: Dockerfile
+    image: aaronchenwei/zeppelin:0.10.0
+    container_name: zeppelin-notebook
+    ports:
+      - '8088:8080'
+    environment:
+      - MASTER=spark://spark-master:7077
+      - SPARK_MASTER=spark://spark-master:7077
+      - SPARK_HOME=/usr/local/spark
+      - PYSPARK_PYTHON=python3
+      - PYSPARK_DRIVER_PYTHON=python3
