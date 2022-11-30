@@ -34,14 +34,14 @@ services:
     restart: on-failure
     ports:
       - '19630:19630'
-  # jupyter-notebook:
-  #   build:
-  #     context: ./jupyter
-  #     dockerfile: Dockerfile
-  #   image: aaronchenwei/pyspark-notebook:spark-3.3.1
-  #   container_name: jupyter-notebook
-  #   ports:
-  #     - '8888:8888'
+  jupyter-notebook:
+    build:
+      context: ./jupyter
+      dockerfile: Dockerfile
+    image: aaronchenwei/pyspark-notebook:spark-3.3.1
+    container_name: jupyter-notebook
+    ports:
+      - '8888:8888'
   zeppelin-notebook:
     build:
       context: ./zeppelin
