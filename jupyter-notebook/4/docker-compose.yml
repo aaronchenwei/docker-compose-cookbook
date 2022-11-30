@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  jupyter:
+    image: docker.io/jupyter/scipy-notebook:python-3.10
+    network_mode: bridge
+    ports:
+      - 8888:8888
+    volumes:
+      - ./volumes/work:/home/jovyan/work
+      - ./volumes/data:/home/jovyan/data
+    # Disable token
+    command: start.sh jupyter lab --LabApp.token=''
