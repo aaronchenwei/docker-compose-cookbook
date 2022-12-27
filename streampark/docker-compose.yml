@@ -1,0 +1,50 @@
+version: '3.8'
+services:
+  streampark-server:
+    image: ${HUB}:${TAG}
+    command: ${COMMAND}
+    ports:
+      - 10000:10000
+    env_file: .env
+    volumes:
+      - flink:/streampark/flink/${FLINK}
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/hosts:/etc/hosts:ro
+      - ~/.kube:/root/.kube:ro
+    privileged: true
+    restart: unless-stopped
+    networks:
+      - streampark
+
+  jobmanager:
+    image: ${FLINK_BASE_IMAGE}
+    ports:
+      - "8081:8081"
+    command: jobmanager
+    volumes:
+      - flink:/opt/flink
+    env_file: .env
+    restart: unless-stopped
+    privileged: true
+    networks:
+      - streampark
+
+  taskmanager:
+    image: ${FLINK_BASE_IMAGE}
+    depends_on:
+      - jobmanager
+    command: taskmanager
+    deploy:
+      replicas: 1
+    env_file: .env
+    restart: unless-stopped
+    privileged: true
+    networks:
+      - streampark
+
+networks:
+  streampark:
+    driver: bridge
+
+volumes:
+  flink:
