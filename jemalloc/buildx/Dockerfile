@@ -15,8 +15,9 @@ RUN wget -O - https://github.com/jemalloc/jemalloc/releases/download/${JEMALLOC_
 
 RUN cd jemalloc-${JEMALLOC_VERSION} && \
    ./configure --prefix=/target/jemalloc && \
-   make && \
-   make install && \
+   make build_lib_shared && \
+   strip -v --remove-section=.comment --remove-section=.note --strip-unneeded lib/libjemalloc.so.2 && \
+   make install_lib_shared && \
    tar zcvf /jemalloc-${JEMALLOC_VERSION}.tar.gz -C /target ./jemalloc
 
 # --------------- Final stage ---------------
