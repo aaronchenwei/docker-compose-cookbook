@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  age:
+    image: docker.io/apache/age
+    container_name: age
+    network_mode: bridge
+    ports:
+      - "5432:5432"
+    environment:
+      - TZ=Asia/Shanghai
+      - POSTGRES_USER=postgresUser
+      - POSTGRES_PASSWORD=postgresPW
+      - POSTGRES_DB=postgresDB
