@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  scipy-jupyter:
+    image: jupyter/scipy-notebook:python-3.10
+    ports:
+      - 8888:8888
+      - "4040-4080:4040-4080"
+    volumes:
+      - ./volumes/work:/home/jovyan/work
+      - ./volumes:/home/jovyan/data
+    command: start.sh jupyter lab --LabApp.token=''
