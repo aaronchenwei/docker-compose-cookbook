@@ -4,6 +4,7 @@ services:
   scipy-jupyter:
     image: jupyter/scipy-notebook:python-3.10
     hostname: scipy-notebook
+    restart: unless-stopped
     ports:
       - 8888:8888
     environment:
