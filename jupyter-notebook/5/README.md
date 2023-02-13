@@ -15,7 +15,7 @@ services:
     ports:
       - 8888:8888
     volumes:
-      - ./notebooks:/home/jovyan/
+      - ./volumes/notebooks:/home/jovyan/notebooks
     environment:
       - JUPYTER_TOKEN=easy
       - GRANT_SUDO=yes
