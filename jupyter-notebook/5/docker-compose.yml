@@ -3,9 +3,10 @@ version: "3"
 services:
   scipy-jupyter:
     image: jupyter/scipy-notebook:python-3.10
+    hostname: scipy-notebook
     ports:
       - 8888:8888
     volumes:
-      - ./volumes/notebooks:/home/jovyan/notebooks
+      - ./volumes/work:/home/jovyan/work
     environment:
       - JUPYTER_TOKEN=easytoken
