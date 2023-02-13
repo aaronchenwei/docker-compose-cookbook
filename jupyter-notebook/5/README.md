@@ -14,13 +14,11 @@ services:
     user: root
     ports:
       - 8888:8888
-      - "4040-4080:4040-4080"
     volumes:
-      - ./volumes/work:/home/jovyan/work
-      - ./volumes:/home/jovyan/data
+      - ./notebooks:/home/jovyan/
     environment:
+      - JUPYTER_TOKEN=easy
       - GRANT_SUDO=yes
-    command: start.sh jupyter lab --LabApp.token=''
 ```
 
 We can use follow command to switch into `root` if you need to install any extra packages
