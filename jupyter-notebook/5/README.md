@@ -10,14 +10,14 @@ version: "3"
 
 services:
   scipy-jupyter:
-    image: jupyter/scipy-notebook:latest
+    image: jupyter/scipy-notebook:python-3.10
+    hostname: scipy-notebook
     user: root
+    restart: unless-stopped
     ports:
       - 8888:8888
-    volumes:
-      - ./volumes/work:/home/jovyan/work
     environment:
-      - JUPYTER_TOKEN=easy
+      - JUPYTER_TOKEN=easytoken
       - GRANT_SUDO=yes
 ```
 
