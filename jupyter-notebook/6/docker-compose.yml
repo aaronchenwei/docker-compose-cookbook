@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  my-scipy-jupyter:
+    build:
+      dockerfile: Dockerfile
+    image: aaronchenwei/scipy-notebook:latest
+    hostname: scipy-notebook
+    user: root
+    restart: unless-stopped
+    ports:
+      - 8888:8888
+    environment:
+      - JUPYTER_TOKEN=easytoken
+      - GRANT_SUDO=yes
+    volumes:
+      - ./volumes/work:/home/jovyan/work
