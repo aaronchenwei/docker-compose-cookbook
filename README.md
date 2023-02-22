@@ -11,5 +11,5 @@ Since Docker is announcing the [General Availability of Docker Compose Version 2
 
 ## How to Use
 
-- Create a new directory and put a `docker-compose.yml` (might together with other files). 
+- Create a new directory and copy file `docker-compose.yml` (might together with other files). 
 - Run `docker compose up -d`.
