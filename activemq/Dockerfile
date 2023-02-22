@@ -1,6 +1,6 @@
-FROM eclipse-temurin:11-alpine
+FROM bellsoft/liberica-openjdk-alpine:17
 
-ENV ACTIVEMQ_VERSION 5.17.2
+ENV ACTIVEMQ_VERSION 5.17.3
 ENV ACTIVEMQ apache-activemq-$ACTIVEMQ_VERSION
 ENV ACTIVEMQ_HOME /opt/activemq
 
