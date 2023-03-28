@@ -1,4 +1,4 @@
-version: '2'
+version: "2"
 services:
   cassandra:
     image: docker.io/bitnami/cassandra:4.0
