@@ -9,7 +9,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: "aaronchenwei/activemq:5.17.4"
+    image: "aaronchenwei/activemq:${ACTIVEMQ_VERSION}"
     container_name: "activemq"
     network_mode: bridge
     hostname: activemq
