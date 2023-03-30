@@ -1,23 +1,26 @@
-version: "2"
+version: '2'
 
 services:
   zookeeper:
-    image: zookeeper:${TAG-3.7}
-    container_name: zookeeper
+    image: docker.io/bitnami/zookeeper:3.8
+    container_name: bitnami-zookeeper
+    hostname: bitnami-zookeeper
     # restart: unless-stopped
     network_mode: bridge
     ports:
       - 2181:2181
+    volumes:
+      - zookeeper_data:/bitnami/zookeeper
     environment:
-      - ZOO_TICK_TIME=2000
-      - ZOO_INIT_LIMIT=10
-      - ZOO_SYNC_LIMIT=2
+      - TZ=Asia/Shanghai
+      - MALLOC_ARENA_MAX=2
+      #
+      - ALLOW_ANONYMOUS_LOGIN=yes
       - ZOO_MAX_CLIENT_CNXNS=120
-      - ZOO_STANDALONE_ENABLED=true
       - ZOO_ADMINSERVER_ENABLED=false
-      - ZOO_AUTOPURGE_PURGEINTERVAL=1
+      - ZOO_AUTOPURGE_PURGEINTERVAL=24
       - ZOO_AUTOPURGE_SNAPRETAINCOUNT=3
-      - ZOO_4LW_COMMANDS_WHITELIST=srvr
+      - ZOO_ENABLE_ADMIN_SERVER=false
       - >
         JVMFLAGS=-Xms1024m -Xmx1024m
         -XX:+UseG1GC
@@ -25,15 +28,7 @@ services:
         -XX:+AlwaysPreTouch
         -Djute.maxbuffer=4194304
         -Dzookeeper.serverCnxnFactory=org.apache.zookeeper.server.NettyServerCnxnFactory
-    volumes:
-      - data:/data
-      - datalog:/datalog
-      - log:/logs
 
 volumes:
-  data:
-    driver: local
-  datalog:
-    driver: local
-  log:
+  zookeeper_data:
     driver: local
