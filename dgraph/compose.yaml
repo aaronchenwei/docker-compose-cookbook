@@ -1,4 +1,5 @@
-version: "3.2"
+version: "3"
+
 services:
   zero:
     image: dgraph/dgraph:latest
@@ -9,6 +10,7 @@ services:
       - 6080:6080
     restart: on-failure
     command: dgraph zero --my=zero:5080
+
   alpha:
     image: dgraph/dgraph:latest
     volumes:
@@ -18,6 +20,7 @@ services:
       - 9080:9080
     restart: on-failure
     command: dgraph alpha --my=alpha:7080 --zero=zero:5080
+
   ratel:
     image: dgraph/ratel:latest
     ports:

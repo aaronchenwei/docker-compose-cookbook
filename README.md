@@ -1,15 +1,37 @@
 # docker-compose-cookbook
 
-A collection of Docker Compose(`docker-compose.yml`) files for development environment setup.
+A collection of Docker Compose(`compose.yaml`) files for quick setup to development environment.
 
 ## Prerequisite
-
-Since Docker is announcing the [General Availability of Docker Compose Version 2 (aka V2)](https://www.docker.com/blog/announcing-compose-v2-general-availability/), V2 is adopted and used for this repository.
 
 -   Docker v20.13.10+
 -   Docker Compose v2.3.3+
 
+Follow the [installation guide](https://docs.docker.com/engine/install/) to install Docker Engine.
+
 ## How to Use
 
-- Create a new directory and copy the file `docker-compose.yml`, along with any other necessary files. 
-- Execute command `docker compose up -d`.
+- Create a new directory since Docker Compose is using directory name as project name.
+  
+  ```sh
+  $ mkdir zookeeper
+  ```
+
+- Copy the compose file `compose.yaml` into the new directory, along with any other necessary files. 
+
+  ```sh
+  $ cd zookeeper
+  $ cp /<somewhere>/compose.yaml .
+  ```
+
+- Create (or modify) `.env` file for any envrionment variables setup. This step is optional.
+
+  ```sh
+  $ vim .env
+  ```
+
+- Execute command to bring up docker containers and tail the logs.
+
+  ```sh
+  $ docker compose up -d && docker compose logs -f
+  ```

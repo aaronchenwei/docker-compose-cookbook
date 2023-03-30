@@ -11,6 +11,7 @@ services:
       - POSTGRESQL_PASSWORD=bitnami1
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
+
   redis:
     image: docker.io/bitnami/redis:7.0
     volumes:
@@ -18,6 +19,7 @@ services:
     environment:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
+
   airflow-scheduler:
     image: docker.io/bitnami/airflow-scheduler:2
     environment:
@@ -27,6 +29,7 @@ services:
       - AIRFLOW_EXECUTOR=CeleryExecutor
       - AIRFLOW_WEBSERVER_HOST=airflow
       - AIRFLOW_LOAD_EXAMPLES=yes
+
   airflow-worker:
     image: docker.io/bitnami/airflow-worker:2
     environment:
@@ -36,6 +39,7 @@ services:
       - AIRFLOW_EXECUTOR=CeleryExecutor
       - AIRFLOW_WEBSERVER_HOST=airflow
       - AIRFLOW_LOAD_EXAMPLES=yes
+
   airflow:
     image: docker.io/bitnami/airflow:2
     environment:

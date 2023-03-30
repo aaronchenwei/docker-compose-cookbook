@@ -1,4 +1,4 @@
-version: '2'
+version: "3"
 
 services:
   etcd1:
@@ -13,6 +13,7 @@ services:
       - ETCD_INITIAL_CLUSTER_TOKEN=etcd-cluster
       - ETCD_INITIAL_CLUSTER=etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380
       - ETCD_INITIAL_CLUSTER_STATE=new
+
   etcd2:
     image: docker.io/bitnami/etcd:3
     environment:
@@ -25,6 +26,7 @@ services:
       - ETCD_INITIAL_CLUSTER_TOKEN=etcd-cluster
       - ETCD_INITIAL_CLUSTER=etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380
       - ETCD_INITIAL_CLUSTER_STATE=new
+
   etcd3:
     image: docker.io/bitnami/etcd:3
     environment:

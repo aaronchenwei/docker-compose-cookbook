@@ -1,0 +1,20 @@
+version: "3"
+
+volumes:
+  data:
+  log:
+
+services:
+  activemq:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: "aaronchenwei/activemq:${ACTIVEMQ_VERSION}"
+    container_name: "activemq"
+    network_mode: bridge
+    hostname: activemq
+    ports:
+      - 61616:61616
+    volumes:
+      - data:/data/activemq
+      - log:/var/log/activemq

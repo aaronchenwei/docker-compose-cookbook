@@ -8,7 +8,7 @@ services:
       - "8182:8182"
     # The mounted volume only makes sense if JanusGraph is being run with the BerekeleyDB storage.
     volumes:
-      - "janusgraph-default-data:/var/lib/janusgraph"
+      - "janusgraph:/var/lib/janusgraph"
 
 volumes:
-  janusgraph-default-data:
+  janusgraph:
