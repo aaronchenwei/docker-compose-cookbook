@@ -1,0 +1,6 @@
+version: "3"
+
+services:
+  aerospike-tools:
+    image: docker.io/aerospike/aerospike-tools:3.31.1
+
