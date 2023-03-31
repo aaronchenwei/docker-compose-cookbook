@@ -1,4 +1,4 @@
-version: '2'
+version: "2"
 
 services:
   mongodb-sharded:
@@ -24,7 +24,7 @@ services:
       - MONGODB_REPLICA_SET_KEY=replicasetkey123
       - MONGODB_REPLICA_SET_NAME=shard0
     volumes:
-      - 'shard0_data:/bitnami'
+      - "shard0_data:/bitnami"
 
   mongodb-cfg:
     image: docker.io/bitnami/mongodb-sharded:${TAG:-latest}
@@ -36,7 +36,7 @@ services:
       - MONGODB_REPLICA_SET_KEY=replicasetkey123
       - MONGODB_REPLICA_SET_NAME=cfgreplicaset
     volumes:
-      - 'cfg_data:/bitnami'
+      - "cfg_data:/bitnami"
 
 volumes:
   shard0_data:
