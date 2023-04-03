@@ -2,7 +2,10 @@ version: "2"
 
 services:
   clickhouse:
-    image: clickhouse/clickhouse-server:${TAG:-latest}
+    image: docker.io/clickhouse/clickhouse-server:${TAG:-latest}
+    container_name: clickhouse
+    hostname: clickhouse
+    network_mode: bridge
     ports:
       - "8123:8123"
       - "9000:9000"
