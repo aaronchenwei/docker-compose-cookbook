@@ -1,8 +1,4 @@
-version: "3"
-
-volumes:
-  data:
-  log:
+version: "2"
 
 services:
   activemq:
@@ -18,3 +14,9 @@ services:
     volumes:
       - data:/data/activemq
       - log:/var/log/activemq
+
+volumes:
+  data:
+    driver: local
+  log:
+    driver: local

@@ -2,7 +2,7 @@ version: "2"
 
 services:
   mysql:
-    image: docker.io/mysql:5.7
+    image: docker.io/mysql:${TAG:-5.7-debian}
     command:
       [
         "--default-authentication-plugin=mysql_native_password",
