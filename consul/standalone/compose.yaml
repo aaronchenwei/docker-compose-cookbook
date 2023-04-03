@@ -3,6 +3,8 @@ version: "2"
 services:
   consul:
     image: docker.io/bitnami/consul:1
+    container_name: consul
+    hostname: consul
     network_mode: bridge
     ports:
       - 8300:8300
