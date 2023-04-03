@@ -26,3 +26,9 @@ We can use follow command to switch into `root` if you need to install any extra
 ```sh
 sudo -s
 ```
+
+## Copy jupyter notebook
+
+```sh
+$ docker run --rm -v $PWD:/source -v jupyter_work:/dest -w /source alpine cp -v test.ipynb /dest
+```
