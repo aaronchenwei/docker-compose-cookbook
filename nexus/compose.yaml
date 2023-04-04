@@ -13,5 +13,5 @@ services:
       - "data:/nexus-data"
 
 volumes:
-  nexus-data:
+  data:
     driver: local
