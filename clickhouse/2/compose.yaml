@@ -1,13 +1,14 @@
+version: '3.5'
 services:
   zookeeper:
-    image: zookeeper:3.5
+    image: zookeeper:3.7
     container_name: zookeeper
     hostname: zookeeper
     networks:
       clickhouse-network:
         ipv4_address: 172.23.0.10
   clickhouse01:
-    image: yandex/clickhouse-server
+    image: clickhouse/clickhouse-server:22.5
     container_name: clickhouse01
     hostname: clickhouse01
     networks:
@@ -21,7 +22,7 @@ services:
     depends_on:
       - zookeeper
   clickhouse02:
-    image: yandex/clickhouse-server
+    image: clickhouse/clickhouse-server:22.5
     container_name: clickhouse02
     hostname: clickhouse02
     networks:
@@ -32,7 +33,7 @@ services:
     depends_on:
       - zookeeper
   clickhouse03:
-    image: yandex/clickhouse-server
+    image: clickhouse/clickhouse-server:22.5
     container_name: clickhouse03
     hostname: clickhouse03
     networks:
@@ -43,7 +44,7 @@ services:
     depends_on:
       - zookeeper
   clickhouse04:
-    image: yandex/clickhouse-server
+    image: clickhouse/clickhouse-server:22.5
     container_name: clickhouse04
     hostname: clickhouse04
     networks:

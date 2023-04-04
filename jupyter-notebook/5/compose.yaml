@@ -1,16 +1,13 @@
 version: "3"
 
-volumes:
-  work:
-
 services:
-  scipy-jupyter:
+  scipy-notebook:
     image: docker.io/jupyter/scipy-notebook:${TAG:-python-3.10}
-    container_name: jupyter
+    container_name: scipy-notebook
+    hostname: scipy-notebook
     user: root
     restart: unless-stopped
     network_mode: bridge
-    hostname: jupyter
     ports:
       - 8888:8888
     environment:
@@ -18,3 +15,7 @@ services:
       - GRANT_SUDO=yes
     volumes:
       - work:/home/jovyan/work
+
+volumes:
+  work:
+    driver: local

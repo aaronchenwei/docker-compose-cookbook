@@ -1,13 +1,13 @@
 services:
   sql-client:
-    image: ftisiot/flink_sql_cli:1.13.2
+    image: ftisiot/flink_sql_cli:1.16.0
     depends_on:
       - jobmanager
     environment:
       FLINK_JOBMANAGER_HOST: jobmanager
 
   jobmanager:
-    image: flink:1.13.2-scala_2.12
+    image: flink:1.16.0-scala_2.12-java11
     ports:
       - "8081:8081"
     command: jobmanager
@@ -16,10 +16,11 @@ services:
         FLINK_PROPERTIES=
         jobmanager.rpc.address: jobmanager
     volumes:
+      - ./settings/:/settings
       - ./data/:/data
 
   taskmanager:
-    image: flink:1.13.2-scala_2.12
+    image: flink:1.16.0-scala_2.12-java11
     depends_on:
       - jobmanager
     command: taskmanager
@@ -28,7 +29,7 @@ services:
       - |
         FLINK_PROPERTIES=
         jobmanager.rpc.address: jobmanager
-        taskmanager.numberOfTaskSlots: 2
+        taskmanager.numberOfTaskSlots: 10
     volumes:
       - ./settings/:/settings
       - ./data/:/data
