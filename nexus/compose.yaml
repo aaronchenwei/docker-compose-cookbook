@@ -1,16 +1,17 @@
-version: '3'
-
-volumes:
-  nexus-data:
+version: "3"
 
 services:
   nexus:
     image: docker.io/sonatype/nexus3:${TAG:-latest}
     container_name: nexus
+    hostname: nexus
     restart: unless-stopped
     network_mode: bridge
-    hostname: nexus
     ports:
       - 8081:8081
     volumes:
-      - "nexus-data:/nexus-data"
+      - "data:/nexus-data"
+
+volumes:
+  nexus-data:
+    driver: local
