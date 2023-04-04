@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  arangodb:
+    image: arangodb:latest
+    restart: always
+    ports:
+      - 1234:8529
+    environment:
+      ARANGO_ROOT_PASSWORD: example
+    volumes:
+      - arangodb_data:/var/lib/arangodb3
+
+volumes:
+  arangodb_data:
+    driver: local
