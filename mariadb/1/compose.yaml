@@ -1,14 +1,20 @@
-version: "2.4"
+version: "2"
 
 services:
-  mysql:
-    image: mariadb:10.6
-    restart: always
+  mariadb:
+    image: mariadb:${TAG:-latest}
+    container_name: mariadb
+    hostname: mariadb
     network_mode: bridge
     ports:
       - 3306:3306
     environment:
-      MARIADB_ROOT_PASSWORD: example
+      - MARIADB_ROOT_PASSWORD=my-secret-pw
+      - MARIADB_USER=example-user
+      - MARIADB_PASSWORD=my_cool_secret
     volumes:
-      - ./volume/conf.d:/etc/mysql/conf.d
-      - ./volume/data:/var/lib/mysql
+      - data:/var/lib/mysql
+
+volumes:
+  data:
+    driver: local
