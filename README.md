@@ -35,3 +35,7 @@ Follow the [installation guide](https://docs.docker.com/engine/install/) to inst
   ```sh
   $ docker compose up -d && docker compose logs -f
   ```
+
+## Other Resources
+
+- [The Bitnami Containers Library](https://github.com/bitnami/containers)
