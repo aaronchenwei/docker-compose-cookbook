@@ -1,1 +1,1 @@
-https://hub.docker.com/r/vectorized/redpanda
+https://docs.redpanda.com/docs/reference/docker-compose
