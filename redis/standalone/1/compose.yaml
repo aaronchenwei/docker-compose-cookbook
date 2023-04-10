@@ -2,14 +2,12 @@ version: "2"
 
 services:
   redis-server:
-    image: redis:6.2
+    image: redis:${TAG:-alpine}
     container_name: redis-server
-    # restart: unless-stopped
+    hostname: redis-server
     network_mode: bridge
     ports:
       - 6379:6379
-    environment:
-      - TZ=Asia/Shanghai
-      - MALLOC_ARENA_MAX=2
     sysctls:
       net.core.somaxconn: "511"
+  
