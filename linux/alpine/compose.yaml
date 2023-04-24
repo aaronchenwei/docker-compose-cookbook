@@ -6,3 +6,7 @@ services:
     network_mode: host
     tty: true
     stdin_open: true
+    ulimits:
+      nofile:
+        soft: 1024
+        hard: 1024
