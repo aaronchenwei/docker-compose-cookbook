@@ -1,8 +1,10 @@
+version: "3"
+
 services:
   influxdb:
-    image: influxdb:alpine
-    # restart: unless-stopped
+    image: influxdb:2.7-alpine
     container_name: influxdb-v2
+    hostname: influxdb-v2
     # network_mode: host
     network_mode: bridge
     ports:
