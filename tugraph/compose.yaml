@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+  tugraph:
+    image: docker.io/tugraph/tugraph-runtime-centos7:${TAG:-latest}
+    container_name: tugraph
+    hostname: tugraph
+    network_mode: bridge
+    ports:
+      - 7070:7070
+      - 9090:9090
+    command: lgraph_server
