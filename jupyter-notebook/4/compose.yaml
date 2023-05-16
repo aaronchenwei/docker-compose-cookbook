@@ -3,10 +3,18 @@ version: "3"
 services:
   jupyter:
     image: docker.io/jupyter/scipy-notebook:python-3.10
+    container_name: jupyter
+    hostname: jupyter
+    network_mode: bridge
     ports:
       - 8888:8888
+    user: root
     volumes:
-      - ./volumes/work:/home/jovyan/work
-      - ./volumes/data:/home/jovyan/data
+      - work:/home/jovyan/work
     environment:
       - JUPYTER_TOKEN=easytoken
+      - GRANT_SUDO=yes
+
+volumes:
+  work:
+    driver: local
