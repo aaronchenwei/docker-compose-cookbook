@@ -2,7 +2,6 @@ services:
   alpine:
     image: alpine:latest
     container_name: alpine
-    # restart: always
     network_mode: host
     tty: true
     stdin_open: true
