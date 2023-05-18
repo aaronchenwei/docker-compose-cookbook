@@ -1,0 +1,7 @@
+services:
+  almalinux:
+    image: almalinux:9
+    container_name: almalinux-9
+    network_mode: host
+    tty: true
+    stdin_open: true
