@@ -1,8 +1,6 @@
-version: "2"
-
 services:
   opensuse:
-    image: docker.io/opensuse/tumbleweed:latest
+    image: opensuse/tumbleweed:latest
     container_name: opensuse-tumbleweed
     network_mode: host
     tty: true
