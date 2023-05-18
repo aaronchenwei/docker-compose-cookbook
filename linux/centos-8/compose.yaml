@@ -2,7 +2,6 @@ services:
   centos8:
     image: centos:centos8
     container_name: centos8
-    restart: always
     network_mode: host
     tty: true
     stdin_open: true

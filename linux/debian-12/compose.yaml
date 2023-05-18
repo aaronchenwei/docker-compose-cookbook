@@ -2,7 +2,6 @@ services:
   debian:
     image: debian:bookworm
     container_name: debian-bookworm
-    restart: always
     network_mode: host
     tty: true
     stdin_open: true
