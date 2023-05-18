@@ -1,8 +1,6 @@
-version: "2"
-
 services:
   kali:
-    image: docker.io/kalilinux/kali-rolling:latest
+    image: kalilinux/kali-rolling:latest
     container_name: kalilinux
     network_mode: host
     tty: true
