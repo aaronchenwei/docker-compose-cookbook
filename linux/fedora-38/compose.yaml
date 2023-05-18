@@ -2,7 +2,7 @@ version: "2"
 
 services:
   fedora:
-    image: fedora:38
+    image: docker.io/fedora:38
     container_name: fedora-38
     network_mode: host
     tty: true
