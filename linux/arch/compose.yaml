@@ -1,6 +1,8 @@
+version: "2"
+
 services:
   archlinux:
-    image: archlinux:latest
+    image: docker.io/archlinux:latest
     container_name: archlinux
     restart: always
     network_mode: host

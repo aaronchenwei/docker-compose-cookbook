@@ -1,6 +1,8 @@
+version: "2"
+
 services:
   alpine:
-    image: alpine:latest
+    image: docker.io/alpine:latest
     container_name: alpine
     network_mode: host
     tty: true

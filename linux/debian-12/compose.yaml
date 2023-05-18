@@ -1,6 +1,8 @@
+version: "2"
+
 services:
   debian:
-    image: debian:bookworm
+    image: docker.io/debian:bookworm
     container_name: debian-bookworm
     network_mode: host
     tty: true

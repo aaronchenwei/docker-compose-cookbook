@@ -1,6 +1,8 @@
+version: "2"
+
 services:
   ubuntu:
-    image: ubuntu:jammy
+    image: docker.io/ubuntu:jammy
     container_name: ubuntu-jammy
     network_mode: host
     tty: true

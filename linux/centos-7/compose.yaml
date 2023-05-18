@@ -1,6 +1,8 @@
+version: "2"
+
 services:
   centos7:
-    image: centos:centos7
+    image: docker.io/centos:centos7
     container_name: centos7
     network_mode: host
     tty: true

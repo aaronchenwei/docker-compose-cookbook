@@ -1,6 +1,8 @@
+version: "2"
+
 services:
   almalinux:
-    image: almalinux:9
+    image: docker.io/almalinux:9
     container_name: almalinux-9
     network_mode: host
     tty: true

@@ -1,6 +1,8 @@
+version: "2"
+
 services:
   debian:
-    image: debian:bullseye
+    image: docker.io/debian:bullseye
     container_name: debian-bullseye
     network_mode: host
     tty: true

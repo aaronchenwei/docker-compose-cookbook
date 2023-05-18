@@ -1,6 +1,8 @@
+version: "2"
+
 services:
   ubuntu:
-    image: ubuntu:focal
+    image: docker.io/ubuntu:focal
     container_name: ubuntu-focal
     network_mode: host
     tty: true
