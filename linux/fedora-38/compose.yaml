@@ -1,8 +1,9 @@
+version: "2"
+
 services:
   fedora:
-    image: fedora:35
-    container_name: fedora35
-    restart: always
+    image: docker.io/fedora:38
+    container_name: fedora-38
     network_mode: host
     tty: true
     stdin_open: true

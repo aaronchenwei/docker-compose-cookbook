@@ -1,8 +1,9 @@
+version: "2"
+
 services:
   ubuntu:
-    image: ubuntu:bionic
+    image: docker.io/ubuntu:bionic
     container_name: ubuntu-bionic
-    restart: always
     network_mode: host
     tty: true
     stdin_open: true

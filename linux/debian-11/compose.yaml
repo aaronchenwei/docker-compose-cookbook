@@ -1,8 +1,9 @@
+version: "2"
+
 services:
   debian:
-    image: debian:bullseye
+    image: docker.io/debian:bullseye
     container_name: debian-bullseye
-    restart: always
     network_mode: host
     tty: true
     stdin_open: true

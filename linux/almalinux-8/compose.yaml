@@ -1,9 +1,9 @@
 version: "2"
 
 services:
-  centos7:
-    image: docker.io/centos:centos7
-    container_name: centos7
+  almalinux:
+    image: docker.io/almalinux:8
+    container_name: almalinux-8
     network_mode: host
     tty: true
     stdin_open: true
