@@ -1,14 +1,13 @@
 version: "3"
 
 services:
-  scipy-notebook:
+  jupyter-notebook:
     build:
       dockerfile: Dockerfile
-    image: aaronchenwei/scipy-notebook:latest
-    container_name: scipy-notebook
-    hostname: scipy-notebook
+    image: aaronchenwei/jupyter-notebook:latest
+    container_name: jupyter-notebook
+    hostname: jupyter-notebook
     user: root
-    restart: unless-stopped
     ports:
       - 8888:8888
     environment:
