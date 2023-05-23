@@ -1,5 +1,8 @@
 ##########################################
 # Common Settings
+#
+# Options specific to IntelliJ are prefixed with `ij_`
+#
 ##########################################
 
 # This file is the top-most EditorConfig file
@@ -8,11 +11,10 @@ root = true
 # All Files
 [*]
 charset = utf-8
-indent_style = space
-indent_size = 4
-end_of_line = lf
 trim_trailing_whitespace = true
 insert_final_newline = true
+end_of_line = lf
+indent_style = space
 
 ##########################################
 # File Extension Settings
@@ -21,6 +23,12 @@ insert_final_newline = true
 # JAVA, Groovy, Kotlin Files
 [*.{java,groovy,kt,kts}]
 indent_size = 2
+
+# Gradle
+[*.gradle]
+ij_continuation_indent_size = 2
+indent_size = 2
+max_line_length = 150
 
 # Web Files
 [*.{htm,html,js,jsm,ts,tsx,cjs,cts,ctsx,mjs,mts,mtsx,css,sass,scss,less,pcss,svg,vue}]
@@ -44,19 +52,25 @@ indent_size = 2
 trim_trailing_whitespace = false
 
 # Makefiles
-[Makefile]
+[Makefile*]
+indent_size = 4
 indent_style = tab
 
 # Python
 [*.py]
-indent_style = space
 indent_size = 4
+indent_style = space
 
 # Go Files
 [{go.mod,go.sum,*.go}]
-indent_style = tab
 indent_size = 4
+indent_style = tab
 
 # Git Files
 [{.gitattributes,.gitignore,.gitmodules}]
+indent_size = 4
 indent_style = tab
+
+# Dockerfile
+[Dockerfile*]
+indent_size = 4
