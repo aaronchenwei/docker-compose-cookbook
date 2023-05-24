@@ -11,3 +11,5 @@ services:
       nofile:
         soft: 1024
         hard: 1024
+    environment:
+      - TZ=Asia/Shanghai
