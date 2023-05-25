@@ -8,3 +8,5 @@ services:
     network_mode: host
     tty: true
     stdin_open: true
+    environment:
+      - TZ=Asia/Shanghai

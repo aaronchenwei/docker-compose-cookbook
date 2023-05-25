@@ -1,9 +1,9 @@
 version: "2"
 
 services:
-  kali:
-    image: docker.io/kalilinux/kali-rolling:latest
-    container_name: kalilinux
+  miniconda:
+    image: docker.io/continuumio/miniconda3:latest
+    container_name: miniconda
     network_mode: host
     tty: true
     stdin_open: true
