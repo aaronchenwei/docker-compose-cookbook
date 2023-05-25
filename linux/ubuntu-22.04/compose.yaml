@@ -2,7 +2,10 @@ version: "2"
 
 services:
   ubuntu:
-    image: docker.io/ubuntu:jammy
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: aaronchenwei/ubuntu-jammy
     container_name: ubuntu-jammy
     network_mode: host
     tty: true
