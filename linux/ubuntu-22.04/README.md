@@ -3,5 +3,5 @@
 ```sh
 $ docker compose build
 $ docker compose up -d
-$ docker compose exec ubuntu bash
+$ docker compose exec ubuntu bash -l
 ```
