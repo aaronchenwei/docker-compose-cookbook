@@ -2,7 +2,10 @@ version: "2"
 
 services:
   debian:
-    image: docker.io/debian:bullseye
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: aaronchenwei/debian-bullseye
     container_name: debian-bullseye
     network_mode: host
     tty: true
