@@ -1,0 +1,11 @@
+version: "2"
+
+services:
+  mambaforge:
+    image: docker.io/condaforge/mambaforge
+    container_name: mambaforge
+    network_mode: host
+    tty: true
+    stdin_open: true
+    environment:
+      - TZ=Asia/Shanghai
