@@ -1,0 +1,11 @@
+version: "2"
+
+services:
+  micromamba:
+    image: docker.io/mambaorg/micromamba:bullseye
+    container_name: micromamba
+    network_mode: host
+    tty: true
+    stdin_open: true
+    environment:
+      - TZ=Asia/Shanghai
