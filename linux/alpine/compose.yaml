@@ -11,5 +11,11 @@ services:
       nofile:
         soft: 1024
         hard: 1024
+    volumes:
+      - shared:/root/shared
     environment:
       - TZ=Asia/Shanghai
+
+volumes:
+  shared:
+    external: true
