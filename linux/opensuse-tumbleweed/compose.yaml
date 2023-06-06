@@ -7,5 +7,7 @@ services:
     network_mode: host
     tty: true
     stdin_open: true
+    volumes:
+      - shared:/root/shared
     environment:
       - TZ=Asia/Shanghai
