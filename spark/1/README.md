@@ -1,1 +1,1 @@
-https://github.com/bitnami/bitnami-docker-spark
+https://github.com/bitnami/containers/tree/main/bitnami/spark
