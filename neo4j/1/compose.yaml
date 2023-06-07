@@ -10,6 +10,7 @@ services:
       # - NEO4J_dbms.memory.heap.initial_size=8G
       # - NEO4J_dbms_memory_heap_max__size=31G
       - NEO4J_dbms_jvm_additional=-XX:+AlwaysPreTouch
+      - TZ=Asia/Shanghai
     network_mode: bridge
     ports:
       - 7474:7474
