@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 
 services:
   redisgraph:
@@ -9,4 +9,8 @@ services:
       - 6333:6333
     environment:
       - TZ=Asia/Shanghai
-      # - MALLOC_ARENA_MAX=2
+    deploy:
+      resources:
+        limits:
+          cpus: "8.0"
+          memory: "16g"
