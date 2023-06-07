@@ -4,9 +4,9 @@ services:
   jupyter1:
     build:
       dockerfile: Dockerfile1
-    image: aaronchenwei/jupyter-notebook1:latest
-    container_name: jupyter-notebook
-    hostname: jupyter-notebook
+    image: aaronchenwei/jupyter1:latest
+    container_name: jupyter1
+    hostname: jupyter1
     user: root
     ports:
       - 8881:8888
@@ -19,9 +19,9 @@ services:
   jupyter2:
     build:
       dockerfile: Dockerfile2
-    image: aaronchenwei/jupyter-notebook2:latest
-    container_name: jupyter-notebook
-    hostname: jupyter-notebook
+    image: aaronchenwei/jupyter2:latest
+    container_name: jupyter2
+    hostname: jupyter2
     user: root
     ports:
       - 8882:8888
@@ -34,9 +34,9 @@ services:
   jupyter3:
     build:
       dockerfile: Dockerfile3
-    image: aaronchenwei/jupyter-notebook3:latest
-    container_name: jupyter-notebook
-    hostname: jupyter-notebook
+    image: aaronchenwei/jupyter3:latest
+    container_name: jupyter3
+    hostname: jupyter3
     user: root
     ports:
       - 8883:8888
