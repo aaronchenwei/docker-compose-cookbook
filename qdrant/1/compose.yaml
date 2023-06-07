@@ -9,6 +9,7 @@ services:
       - 6333:6333
     environment:
       - TZ=Asia/Shanghai
+      - MALLOC_ARENA_MAX=2
     volumes:
       - ./data/qdrant_storage:/qdrant/storage
     deploy:
