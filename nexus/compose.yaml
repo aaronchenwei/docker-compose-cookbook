@@ -11,6 +11,14 @@ services:
       - 8081:8081
     volumes:
       - "data:/nexus-data"
+    environment:
+      - TZ=Asia/Shanghai
+      # - MALLOC_ARENA_MAX=2
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: "8g"
 
 volumes:
   data:
