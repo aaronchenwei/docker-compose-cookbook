@@ -27,7 +27,7 @@ services:
       MINIO_ACCESS_KEY: minioadmin
       MINIO_SECRET_KEY: minioadmin
       TZ: Asia/Shanghai
-      MALLOC_ARENA_MAX: 2
+      MALLOC_ARENA_MAX: "2"
     volumes:
       - ${DOCKER_VOLUME_DIRECTORY:-.}/volumes/minio:/minio_data
     command: minio server /minio_data
@@ -50,7 +50,7 @@ services:
       ETCD_ENDPOINTS: etcd:2379
       MINIO_ADDRESS: minio:9000
       TZ: Asia/Shanghai
-      MALLOC_ARENA_MAX: 2
+      MALLOC_ARENA_MAX: "2"
     volumes:
       - ${DOCKER_VOLUME_DIRECTORY:-.}/volumes/milvus:/var/lib/milvus
     ports:
