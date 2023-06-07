@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  redisgraph:
+  qdrant:
     image: docker.io/qdrant/qdrant:${TAG:-latest}
     hostname: qdrant
     network_mode: bridge
@@ -9,6 +9,8 @@ services:
       - 6333:6333
     environment:
       - TZ=Asia/Shanghai
+    volumes:
+      - ./data/qdrant_storage:/qdrant/storage
     deploy:
       resources:
         limits:
