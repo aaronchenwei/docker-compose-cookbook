@@ -9,13 +9,15 @@ services:
       - ETCD_AUTO_COMPACTION_RETENTION=1000
       - ETCD_QUOTA_BACKEND_BYTES=4294967296
       - ETCD_SNAPSHOT_COUNT=50000
+      - TZ=Asia/Shanghai
+      - MALLOC_ARENA_MAX=2
     volumes:
       - ${DOCKER_VOLUME_DIRECTORY:-.}/volumes/etcd:/etcd
     command: etcd -advertise-client-urls=http://127.0.0.1:2379 -listen-client-urls http://0.0.0.0:2379 --data-dir /etcd
     deploy:
       resources:
         limits:
-          cpus: "4.0"
+          cpus: "8.0"
           memory: "8g"
 
   minio:
@@ -24,6 +26,8 @@ services:
     environment:
       MINIO_ACCESS_KEY: minioadmin
       MINIO_SECRET_KEY: minioadmin
+      TZ: Asia/Shanghai
+      MALLOC_ARENA_MAX: "2"
     volumes:
       - ${DOCKER_VOLUME_DIRECTORY:-.}/volumes/minio:/minio_data
     command: minio server /minio_data
@@ -35,7 +39,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "4.0"
+          cpus: "8.0"
           memory: "8g"
 
   standalone:
@@ -45,6 +49,8 @@ services:
     environment:
       ETCD_ENDPOINTS: etcd:2379
       MINIO_ADDRESS: minio:9000
+      TZ: Asia/Shanghai
+      MALLOC_ARENA_MAX: "2"
     volumes:
       - ${DOCKER_VOLUME_DIRECTORY:-.}/volumes/milvus:/var/lib/milvus
     ports:
