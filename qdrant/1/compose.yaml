@@ -1,7 +1,7 @@
-version: "2"
+version: "3"
 
 services:
-  redisgraph:
+  qdrant:
     image: docker.io/qdrant/qdrant:${TAG:-latest}
     hostname: qdrant
     network_mode: bridge
@@ -9,4 +9,10 @@ services:
       - 6333:6333
     environment:
       - TZ=Asia/Shanghai
-      # - MALLOC_ARENA_MAX=2
+    volumes:
+      - ./data/qdrant_storage:/qdrant/storage
+    deploy:
+      resources:
+        limits:
+          cpus: "8.0"
+          memory: "16g"
