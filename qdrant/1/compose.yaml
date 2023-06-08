@@ -12,6 +12,7 @@ services:
       - MALLOC_ARENA_MAX=2
     volumes:
       - ./data/qdrant_storage:/qdrant/storage
+      - ./custom_config.yaml:/qdrant/config/production.yaml
     deploy:
       resources:
         limits:
