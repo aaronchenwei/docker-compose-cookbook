@@ -11,6 +11,8 @@ services:
       - ETCD_SNAPSHOT_COUNT=50000
       - TZ=Asia/Shanghai
       - MALLOC_ARENA_MAX=2
+      - MALLOC_MMAP_THRESHOLD_=131072
+      - MALLOC_TRIM_THRESHOLD_=16384
     volumes:
       - ${DOCKER_VOLUME_DIRECTORY:-.}/volumes/etcd:/etcd
     command: etcd -advertise-client-urls=http://127.0.0.1:2379 -listen-client-urls http://0.0.0.0:2379 --data-dir /etcd
@@ -28,6 +30,8 @@ services:
       MINIO_SECRET_KEY: minioadmin
       TZ: Asia/Shanghai
       MALLOC_ARENA_MAX: "2"
+      MALLOC_MMAP_THRESHOLD_: "131072"
+      MALLOC_TRIM_THRESHOLD_: "16384"
     volumes:
       - ${DOCKER_VOLUME_DIRECTORY:-.}/volumes/minio:/minio_data
     command: minio server /minio_data
@@ -51,6 +55,8 @@ services:
       MINIO_ADDRESS: minio:9000
       TZ: Asia/Shanghai
       MALLOC_ARENA_MAX: "2"
+      MALLOC_MMAP_THRESHOLD_: "131072"
+      MALLOC_TRIM_THRESHOLD_: "16384"
     volumes:
       - ${DOCKER_VOLUME_DIRECTORY:-.}/volumes/milvus:/var/lib/milvus
     ports:
