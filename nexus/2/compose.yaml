@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  nexus:
+    image: aaronchenwei/nexus3:latest
+    build:
+      dockerfile: Dockerfile
+    container_name: nexus
+    hostname: nexus
+    restart: unless-stopped
+    network_mode: bridge
+    ports:
+      - 8081:8081
+    volumes:
+      - "data:/nexus-data"
+    environment:
+      - TZ=Asia/Shanghai
+    deploy:
+      resources:
+        limits:
+          cpus: "4.0"
+          memory: "8g"
+
+volumes:
+  data:
+    driver: local
