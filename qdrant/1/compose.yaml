@@ -7,9 +7,10 @@ services:
     network_mode: bridge
     ports:
       - 6333:6333
+      - 6334:6334
     environment:
       - TZ=Asia/Shanghai
-      - MALLOC_ARENA_MAX=4
+      - MALLOC_ARENA_MAX=1
       - MALLOC_MMAP_THRESHOLD_=131072
       - MALLOC_TRIM_THRESHOLD_=16384
     volumes:
