@@ -13,11 +13,13 @@ services:
       - "data:/nexus-data"
     environment:
       - TZ=Asia/Shanghai
-      # - MALLOC_ARENA_MAX=2
+      - MALLOC_ARENA_MAX=2
+      - MALLOC_MMAP_THRESHOLD_=131072
+      - MALLOC_TRIM_THRESHOLD_=16384
     deploy:
       resources:
         limits:
-          cpus: "2.0"
+          cpus: "4.0"
           memory: "8g"
 
 volumes:
