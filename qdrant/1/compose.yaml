@@ -9,7 +9,9 @@ services:
       - 6333:6333
     environment:
       - TZ=Asia/Shanghai
-      - MALLOC_ARENA_MAX=2
+      - MALLOC_ARENA_MAX=4
+      - MALLOC_MMAP_THRESHOLD_=131072
+      - MALLOC_TRIM_THRESHOLD_=16384
     volumes:
       - ./data/qdrant_storage:/qdrant/storage
       - ./custom_config.yaml:/qdrant/config/production.yaml
