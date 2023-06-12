@@ -1,8 +1,11 @@
-version: "2"
+version: "3"
 
 services:
   debian:
-    image: docker.io/debian:bookworm
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: aaronchenwei/debian:bookworm
     container_name: debian-bookworm
     network_mode: host
     tty: true

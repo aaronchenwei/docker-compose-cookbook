@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: aaronchenwei/debian-bullseye
+    image: aaronchenwei/debian:bullseye
     container_name: debian-bullseye
     network_mode: host
     tty: true
