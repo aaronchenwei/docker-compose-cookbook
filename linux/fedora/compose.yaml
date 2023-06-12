@@ -1,9 +1,12 @@
-version: "2"
+version: "3"
 
 services:
   fedora:
-    image: docker.io/fedora:latest
-    container_name: fedora
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: aaronchenwei/fedora:38
+    container_name: fedora-38
     network_mode: host
     tty: true
     stdin_open: true
