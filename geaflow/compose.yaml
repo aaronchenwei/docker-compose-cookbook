@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  geaflow-console:
+    image: docker.io/tugraph/geaflow-console:0.1
+    container_name: geaflow-console
+    hostname: geaflow-console
+    network_mode: bridge
+    ports:
+      - 8080:8080
+      - 8888:8888
+      - 3306:3306
+      - 6379:6379
+      - 8086:8086
