@@ -9,4 +9,5 @@ RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/debi
     && apt-get install -y ca-certificates \
     && sed -i 's/http:/https:/g' /etc/apt/sources.list.d/debian.sources
 
-RUN apt-get install -y wget vim build-essential git
+RUN apt-get install -y wget vim build-essential git \
+    && rm -rf /var/lib/apt/lists/*
