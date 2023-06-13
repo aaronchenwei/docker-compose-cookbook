@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  miniforge:
+    image: docker.io/condaforge/miniforge3
+    container_name: miniforge
+    network_mode: host
+    tty: true
+    stdin_open: true
+    volumes:
+      - shared:/root/shared
+    environment:
+      - TZ=Asia/Shanghai
+
+volumes:
+  shared:
+    external: true
