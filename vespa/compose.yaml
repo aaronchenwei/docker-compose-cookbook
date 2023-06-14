@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  vespa:
+    image: docker.io/vespaengine/vespa:latest
+    container_name: vespa
+    hostname: vespa
+    network_mode: bridge
+    ports:
+      - 8080:8080
+      - 19071:19071
+    volumes:
+      - ./vespa/var:/opt/vespa/var
+      - ./vespa/logs:/opt/vespa/logs
