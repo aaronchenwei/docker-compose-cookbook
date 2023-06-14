@@ -11,3 +11,5 @@ USER nexus
 
 # ENV LD_PRELOAD /usr/lib64/libtcmalloc.so.4
 ENV LD_PRELOAD /usr/lib64/libjemalloc.so.2
+
+ENV INSTALL4J_ADD_VM_PARAMS="-XX:+AlwaysPreTouch -XX:+UseG1GC -Xms2703m -Xmx2703m -XX:MaxDirectMemorySize=2703m -Djava.util.prefs.userRoot=${NEXUS_DATA}/javaprefs"
