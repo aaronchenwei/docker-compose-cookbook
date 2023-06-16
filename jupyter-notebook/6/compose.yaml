@@ -1,50 +1,65 @@
 version: "3"
 
 services:
-  jupyter1:
+  jupyter:
     build:
-      dockerfile: Dockerfile1
+      dockerfile: Dockerfile
     image: aaronchenwei/jupyter1:latest
-    container_name: jupyter1
-    hostname: jupyter1
+    container_name: jupyter
+    hostname: jupyter
     user: root
     ports:
-      - 8881:8888
+      - 8888:8888
     environment:
       - JUPYTER_TOKEN=easytoken
       - GRANT_SUDO=yes
     volumes:
       - work:/home/jovyan/work
 
-  jupyter2:
-    build:
-      dockerfile: Dockerfile2
-    image: aaronchenwei/jupyter2:latest
-    container_name: jupyter2
-    hostname: jupyter2
-    user: root
-    ports:
-      - 8882:8888
-    environment:
-      - JUPYTER_TOKEN=easytoken
-      - GRANT_SUDO=yes
-    volumes:
-      - work:/home/jovyan/work
+  # jupyter1:
+  #   build:
+  #     dockerfile: Dockerfile1
+  #   image: aaronchenwei/jupyter1:latest
+  #   container_name: jupyter1
+  #   hostname: jupyter1
+  #   user: root
+  #   ports:
+  #     - 8881:8888
+  #   environment:
+  #     - JUPYTER_TOKEN=easytoken
+  #     - GRANT_SUDO=yes
+  #   volumes:
+  #     - work:/home/jovyan/work
 
-  jupyter3:
-    build:
-      dockerfile: Dockerfile3
-    image: aaronchenwei/jupyter3:latest
-    container_name: jupyter3
-    hostname: jupyter3
-    user: root
-    ports:
-      - 8883:8888
-    environment:
-      - JUPYTER_TOKEN=easytoken
-      - GRANT_SUDO=yes
-    volumes:
-      - work:/home/jovyan/work
+  # jupyter2:
+  #   build:
+  #     dockerfile: Dockerfile2
+  #   image: aaronchenwei/jupyter2:latest
+  #   container_name: jupyter2
+  #   hostname: jupyter2
+  #   user: root
+  #   ports:
+  #     - 8882:8888
+  #   environment:
+  #     - JUPYTER_TOKEN=easytoken
+  #     - GRANT_SUDO=yes
+  #   volumes:
+  #     - work:/home/jovyan/work
+
+  # jupyter3:
+  #   build:
+  #     dockerfile: Dockerfile3
+  #   image: aaronchenwei/jupyter3:latest
+  #   container_name: jupyter3
+  #   hostname: jupyter3
+  #   user: root
+  #   ports:
+  #     - 8883:8888
+  #   environment:
+  #     - JUPYTER_TOKEN=easytoken
+  #     - GRANT_SUDO=yes
+  #   volumes:
+  #     - work:/home/jovyan/work
 
 volumes:
   work:
