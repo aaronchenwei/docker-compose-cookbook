@@ -1,16 +1,18 @@
 version: "3"
 
 services:
-  jupyter:
+  jupyter-demo:
     build:
+      context: .
       dockerfile: Dockerfile
-    image: aaronchenwei/jupyter1:latest
-    container_name: jupyter
-    hostname: jupyter
+    image: aaronchenwei/jupyter-demo:latest
+    container_name: jupyter-demo
+    hostname: jupyter-demo
     user: root
     ports:
-      - 8888:8888
+      - 28888:8888
     environment:
+      # - DOCKER_STACKS_JUPYTER_CMD=notebook
       - JUPYTER_TOKEN=easytoken
       - GRANT_SUDO=yes
     volumes:
