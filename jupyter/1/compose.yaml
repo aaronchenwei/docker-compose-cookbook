@@ -1,14 +1,13 @@
 version: "3"
 
 services:
-  pyspark-notebook:
-    image: docker.io/jupyter/pyspark-notebook:${TAG:-python-3.10}
+  jupyter:
+    image: docker.io/jupyter/scipy-notebook:${TAG:-latest}
     container_name: jupyter
     hostname: jupyter
     network_mode: bridge
     ports:
       - 8888:8888
-      - "4040-4080:4040-4080"
     user: root
     environment:
       - JUPYTER_TOKEN=easytoken
