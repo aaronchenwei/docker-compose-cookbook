@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 
 services:
   opensuse:
@@ -11,3 +11,7 @@ services:
       - shared:/root/shared
     environment:
       - TZ=Asia/Shanghai
+
+volumes:
+  shared:
+    external: true

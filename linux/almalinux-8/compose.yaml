@@ -1,7 +1,7 @@
-version: "2"
+version: "3"
 
 services:
-  almalinux:
+  almalinux-8:
     image: docker.io/almalinux:8
     container_name: almalinux-8
     network_mode: host
