@@ -10,14 +10,11 @@ services:
       - 6334:6334
     environment:
       - TZ=Asia/Shanghai
-      - MALLOC_ARENA_MAX=1
-      - MALLOC_MMAP_THRESHOLD_=131072
-      - MALLOC_TRIM_THRESHOLD_=16384
     volumes:
       - ./data/qdrant_storage:/qdrant/storage
       - ./custom_config.yaml:/qdrant/config/production.yaml
     deploy:
       resources:
         limits:
-          cpus: "8.0"
-          memory: "16g"
+          cpus: "16.0"
+          memory: "32g"
