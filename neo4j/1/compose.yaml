@@ -1,26 +1,27 @@
-version: "2"
+version: "3"
 
 services:
   neo4j:
-    image: docker.io/neo4j:${TAG-latest}
+    image: docker.io/neo4j:${TAG-community}
     environment:
       - NEO4J_AUTH=none
       # - NEO4J_AUTH=neo4j/learnneo4j
       # - NEO4J_dbms_memory_pagecache_size=31G
       # - NEO4J_dbms.memory.heap.initial_size=8G
       # - NEO4J_dbms_memory_heap_max__size=31G
-      - NEO4J_dbms_jvm_additional=-XX:+AlwaysPreTouch
+      - NEO4J_server_jvm_additional=-XX:+AlwaysPreTouch
       - TZ=Asia/Shanghai
+      - MALLOC_ARENA_MAX=1
     network_mode: bridge
     ports:
       - 7474:7474
       - 7687:7687
     volumes:
-      - neo4j_data:/data
-      - neo4j_logs:/logs
+      - data:/data
+      - logs:/logs
 
 volumes:
-  neo4j_data:
+  data:
     driver: local
-  neo4j_logs:
+  logs:
     driver: local
