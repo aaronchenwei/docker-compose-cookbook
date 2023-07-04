@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  fedora:
+  fedora-38:
     build:
       context: .
       dockerfile: Dockerfile
