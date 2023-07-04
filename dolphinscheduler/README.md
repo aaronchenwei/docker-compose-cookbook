@@ -7,3 +7,6 @@ $ docker-compose --profile schema up -d
 # start all dolphinscheduler server, use profile all
 $ docker-compose --profile all up -d
 ```
+
+
+https://github.com/apache/dolphinscheduler/blob/dev/deploy/docker/docker-compose.yml
