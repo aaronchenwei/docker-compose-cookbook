@@ -1,7 +1,9 @@
 version: "3"
+
 networks:
   app-tier:
     driver: bridge
+
 services:
   zookeeper:
     image: "bitnami/zookeeper:3.7"
@@ -13,6 +15,7 @@ services:
       - app-tier
     logging:
       driver: none
+
   kafka:
     image: "bitnami/kafka:2"
     logging:
@@ -31,6 +34,7 @@ services:
       - zookeeper
     networks:
       - app-tier
+
   memgraph-mage:
     build: ./memgraph
     entrypoint:
@@ -41,12 +45,14 @@ services:
       - "7687:7687"
     networks:
       - app-tier
+
   core:
     image: tianon/true
     restart: "no"
     depends_on:
       - kafka
       - memgraph-mage
+
   twitch-app:
     build: ./backend
     volumes:
@@ -60,6 +66,7 @@ services:
       - memgraph-mage
     networks:
       - app-tier
+
   react-app:
     build: ./frontend
     volumes:
@@ -71,6 +78,7 @@ services:
       - twitch-app
     networks:
       - app-tier
+
   twitch-stream:
     build: ./twitch-stream
     volumes:
