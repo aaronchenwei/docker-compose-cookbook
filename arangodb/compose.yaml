@@ -1,16 +1,16 @@
-version: "2"
+version: "3"
 
 services:
   arangodb:
-    image: arangodb:latest
-    restart: always
+    image: docker.io/arangodb:latest
     ports:
-      - 1234:8529
+      - 8529:8529
     environment:
-      ARANGO_ROOT_PASSWORD: example
+      - ARANGO_ROOT_PASSWORD=example
     volumes:
-      - arangodb_data:/var/lib/arangodb3
+      - arangodb_data_container:/var/lib/arangodb3
+      - arangodb_apps_data_container:/var/lib/arangodb3-apps
 
 volumes:
-  arangodb_data:
-    driver: local
+  arangodb_data_container:
+  arangodb_apps_data_container:
