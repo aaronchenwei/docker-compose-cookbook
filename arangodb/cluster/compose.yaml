@@ -1,47 +1,126 @@
 version: '3'
 
 services:
-  agency:
-      image: arangodb/arangodb
-      environment:
-          - ARANGO_NO_AUTH=1
-      command: arangod --server.endpoint tcp://0.0.0.0:5001 --server.authentication false --agency.activate true --agency.size 1 --agency.supervision true --database.directory /var/lib/arangodb3/agency1
+  agency1:
+    image: docker.io/arangodb:latest
+    hostname: 'arangodb-agency1'
+    container_name: 'arangodb-agency1'
+    networks:
+      - arango_net
+    environment:
+      - ARANGO_NO_AUTH=1
+    expose:
+      - '5001'
+    volumes:
+      - ./arangodb/agency1.conf:/etc/arangodb3/arangod.conf
+      - ./arangodb/data/agency1:/var/lib/arangodb3/
 
-  coordinator:
-      image: arangodb/arangodb
-      environment:
-          - ARANGO_NO_AUTH=1
-      command: arangod --server.authentication=false --server.endpoint tcp://0.0.0.0:8529 --cluster.my-address tcp://coordinator:8529 --cluster.my-local-info coord1  --cluster.my-role COORDINATOR --cluster.agency-endpoint tcp://agency:5001   --database.directory /var/lib/arangodb3/coordinator
-      ports: ['8000:8529']
-      depends_on:
-          - agency
+  agency2:
+    image: docker.io/arangodb:latest
+    hostname: 'arangodb-agency2'
+    container_name: 'arangodb-agency2'
+    depends_on:
+      - "agency1"
+    networks:
+      - arango_net
+    environment:
+      - ARANGO_NO_AUTH=1
+    expose:
+      - '5002'
+    volumes:
+      - ./arangodb/agency2.conf:/etc/arangodb3/arangod.conf
+      - ./arangodb/data/agency2:/var/lib/arangodb3/
+
+  agency3:
+    image: docker.io/arangodb:latest
+    hostname: 'arangodb-agency3'
+    container_name: 'arangodb-agency3'
+    depends_on:
+      - "agency1"
+    networks:
+      - arango_net
+    environment:
+      - ARANGO_NO_AUTH=1
+    expose:
+      - '5003'
+    volumes:
+      - ./arangodb/agency3.conf:/etc/arangodb3/arangod.conf
+      - ./arangodb/data/agency3:/var/lib/arangodb3/
+
+  coordinator1:
+    image: docker.io/arangodb:latest
+    hostname: 'arangodb-coordinator1'
+    container_name: 'arangodb-coordinator1'
+    networks:
+      - arango_net
+    environment:
+      - ARANGO_NO_AUTH=1
+    ports:
+      - '7001:7001'
+    expose:
+      - '7001'
+    volumes:
+      - ./arangodb/coord1.conf:/etc/arangodb3/arangod.conf
+      - ./arangodb/data/coordinator1:/var/lib/arangodb3/
+
   coordinator2:
-      image: arangodb/arangodb
-      environment:
-          - ARANGO_NO_AUTH=1
-      command: arangod --server.authentication=false --server.endpoint tcp://0.0.0.0:8529 --cluster.my-address tcp://coordinator2:8529 --cluster.my-local-info coord2  --cluster.my-role COORDINATOR --cluster.agency-endpoint tcp://agency:5001   --database.directory /var/lib/arangodb3/coordinator
-      ports: ['8001:8529']
-      depends_on:
-          - agency
+    image: docker.io/arangodb:latest
+    hostname: 'arangodb-coordinator2'
+    container_name: 'arangodb-coordinator2'
+    networks:
+      - arango_net
+    environment:
+      - ARANGO_NO_AUTH=1
+    ports:
+      - '7002:7002'
+    expose:
+      - '7002'
+    volumes:
+      - ./arangodb/coord2.conf:/etc/arangodb3/arangod.conf
+      - ./arangodb/data/coordinator2:/var/lib/arangodb3/
 
   db1:
-      image: arangodb/arangodb
-      environment:
-          - ARANGO_NO_AUTH=1
-      command: arangod --server.authentication=false --server.endpoint tcp://0.0.0.0:8529 --cluster.my-address tcp://db1:8529 --cluster.my-local-info db1 --cluster.my-role PRIMARY --cluster.agency-endpoint tcp://agency:5001  --database.directory /var/lib/arangodb3/primary1
-      depends_on:
-          - agency
+    image: docker.io/arangodb:latest
+    hostname: 'arangodb-db1'
+    container_name: 'arangodb-db1'
+    networks:
+      - arango_net
+    environment:
+      - ARANGO_NO_AUTH=1
+    expose:
+      - '6001'
+    volumes:
+      - ./arangodb/dbserver1.conf:/etc/arangodb3/arangod.conf
+      - ./arangodb/data/db1:/var/lib/arangodb3
+
   db2:
-      image: arangodb/arangodb
-      environment:
-          - ARANGO_NO_AUTH=1
-      command: arangod --server.authentication=false --server.endpoint tcp://0.0.0.0:8529 --cluster.my-address tcp://db2:8529 --cluster.my-local-info db2 --cluster.my-role PRIMARY --cluster.agency-endpoint tcp://agency:5001  --database.directory /var/lib/arangodb3/primary1
-      depends_on:
-          - agency
+    image: docker.io/arangodb:latest
+    hostname: 'arangodb-db2'
+    container_name: 'arangodb-db2'
+    networks:
+      - arango_net
+    environment:
+      - ARANGO_NO_AUTH=1
+    expose:
+      - '6002'
+    volumes:
+      - ./arangodb/dbserver2.conf:/etc/arangodb3/arangod.conf
+      - ./arangodb/data/db2:/var/lib/arangodb3
+
   db3:
-      image: arangodb/arangodb
-      environment:
-          - ARANGO_NO_AUTH=1
-      command: arangod --server.authentication=false --server.endpoint tcp://0.0.0.0:8529 --cluster.my-address tcp://db3:8529 --cluster.my-local-info db3 --cluster.my-role PRIMARY --cluster.agency-endpoint tcp://agency:5001  --database.directory /var/lib/arangodb3/primary1
-      depends_on:
-          - agency
+    image: docker.io/arangodb:latest
+    hostname: 'arangodb-db3'
+    container_name: 'arangodb-db3'
+    networks:
+      - arango_net
+    environment:
+      - ARANGO_NO_AUTH=1
+    expose:
+      - '6003'
+    volumes:
+      - ./arangodb/dbserver3.conf:/etc/arangodb3/arangod.conf
+      - ./arangodb/data/db3:/var/lib/arangodb3
+
+networks:
+  arango_net:
+    driver: bridge
