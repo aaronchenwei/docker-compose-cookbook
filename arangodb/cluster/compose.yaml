@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  agency:
+      image: arangodb/arangodb
+      environment:
+          - ARANGO_NO_AUTH=1
+      command: arangod --server.endpoint tcp://0.0.0.0:5001 --server.authentication false --agency.activate true --agency.size 1 --agency.supervision true --database.directory /var/lib/arangodb3/agency1
+
+  coordinator:
+      image: arangodb/arangodb
+      environment:
+          - ARANGO_NO_AUTH=1
+      command: arangod --server.authentication=false --server.endpoint tcp://0.0.0.0:8529 --cluster.my-address tcp://coordinator:8529 --cluster.my-local-info coord1  --cluster.my-role COORDINATOR --cluster.agency-endpoint tcp://agency:5001   --database.directory /var/lib/arangodb3/coordinator
+      ports: ['8000:8529']
+      depends_on:
+          - agency
+  coordinator2:
+      image: arangodb/arangodb
+      environment:
+          - ARANGO_NO_AUTH=1
+      command: arangod --server.authentication=false --server.endpoint tcp://0.0.0.0:8529 --cluster.my-address tcp://coordinator2:8529 --cluster.my-local-info coord2  --cluster.my-role COORDINATOR --cluster.agency-endpoint tcp://agency:5001   --database.directory /var/lib/arangodb3/coordinator
+      ports: ['8001:8529']
+      depends_on:
+          - agency
+
+  db1:
+      image: arangodb/arangodb
+      environment:
+          - ARANGO_NO_AUTH=1
+      command: arangod --server.authentication=false --server.endpoint tcp://0.0.0.0:8529 --cluster.my-address tcp://db1:8529 --cluster.my-local-info db1 --cluster.my-role PRIMARY --cluster.agency-endpoint tcp://agency:5001  --database.directory /var/lib/arangodb3/primary1
+      depends_on:
+          - agency
+  db2:
+      image: arangodb/arangodb
+      environment:
+          - ARANGO_NO_AUTH=1
+      command: arangod --server.authentication=false --server.endpoint tcp://0.0.0.0:8529 --cluster.my-address tcp://db2:8529 --cluster.my-local-info db2 --cluster.my-role PRIMARY --cluster.agency-endpoint tcp://agency:5001  --database.directory /var/lib/arangodb3/primary1
+      depends_on:
+          - agency
+  db3:
+      image: arangodb/arangodb
+      environment:
+          - ARANGO_NO_AUTH=1
+      command: arangod --server.authentication=false --server.endpoint tcp://0.0.0.0:8529 --cluster.my-address tcp://db3:8529 --cluster.my-local-info db3 --cluster.my-role PRIMARY --cluster.agency-endpoint tcp://agency:5001  --database.directory /var/lib/arangodb3/primary1
+      depends_on:
+          - agency
