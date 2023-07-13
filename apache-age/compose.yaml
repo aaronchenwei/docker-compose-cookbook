@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 
 services:
   apache-age:
@@ -6,7 +6,7 @@ services:
     container_name: apache-age
     network_mode: bridge
     ports:
-      - "5432:5432"
+      - 5432:5432
     environment:
       - TZ=Asia/Shanghai
       - POSTGRES_USER=postgresUser
