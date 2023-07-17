@@ -8,7 +8,7 @@ services:
       ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181
 
   cmak:
-    image: aaronchenwei/cmak:3.0.0.6
+    image: aaronchenwei/cmak:3.0.0.6-alpine
     build: .
     restart: always
     ports:
