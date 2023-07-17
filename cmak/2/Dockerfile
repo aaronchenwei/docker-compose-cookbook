@@ -1,4 +1,4 @@
-FROM docker.io/alpine:latest as build
+FROM docker.io/alpine:3.18 as build
 
 ENV CMAK_VERSION 3.0.0.6
 
