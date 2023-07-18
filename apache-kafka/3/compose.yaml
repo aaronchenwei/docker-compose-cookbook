@@ -1,37 +1,15 @@
 version: "2"
 
-networks:
-  kafka-network:
-    driver: bridge
-
 services:
   kafka:
-    image: "bitnami/kafka:2.4.1"
-    depends_on:
-      - zookeeper
-    restart: always
-    networks:
-      - kafka-network
+    image: docker.io/bitnami/kafka:3.5
     ports:
-      - "9093:9093"
+      - "9092:9092"
+    volumes:
+      - "kafka_data:/bitnami"
     environment:
-      - KAFKA_BROKER_ID=1
-      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
-      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
-      - KAFKA_CFG_LISTENERS=INTERNAL://:9092,EXTERNAL://:9093
-      - KAFKA_ADVERTISED_LISTENERS=INTERNAL://kafka:9092,EXTERNAL://localhost:9093
-      - KAFKA_INTER_BROKER_LISTENER_NAME=INTERNAL
-      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
       - ALLOW_PLAINTEXT_LISTENER=yes
 
-  zookeeper:
-    image: "bitnami/zookeeper:3.5.7"
-    restart: always
-    networks:
-      - kafka-network
-    ports:
-      - "2181:2181"
-    environment:
-      - ZOOKEEPER_CLIENT_PORT=2181
-      - ZOOKEEPER_TICK_TIME=2000
-      - ALLOW_ANONYMOUS_LOGIN=yes
+volumes:
+  kafka_data:
+    driver: local
