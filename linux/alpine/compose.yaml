@@ -2,7 +2,10 @@ version: "3"
 
 services:
   alpine:
-    image: docker.io/alpine:latest
+    build:
+        context: .
+        dockerfile: Dockerfile
+    image: aaronchenwei/alpine:3.18.2
     container_name: alpine
     network_mode: host
     tty: true
