@@ -1,9 +1,11 @@
-# syntax=docker/dockerfile:1.4
-FROM debian:bullseye as build
+FROM docker.io/alpine:3.18 as build
 
 ENV CMAK_VERSION 3.0.0.6
 
-RUN apt-get update && apt-get install -y zip unzip curl
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+
+RUN apk add --update curl unzip && \
+    rm -rf /var/cache/apk/*
 
 RUN <<EOF
     set -e
@@ -13,7 +15,7 @@ RUN <<EOF
     rm -rf /tmp/cmak.zip
 EOF
 
-FROM eclipse-temurin:11-jre
+FROM eclipse-temurin:11-jre-alpine
 COPY --from=build /cmak /cmak
 VOLUME /cmak/conf
 ENV JAVA_OPTS=-XX:MaxRAMPercentage=80

@@ -12,7 +12,12 @@ $ docker compose exec alpine sh
 ```sh
 
 ```
-# sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g" /etc/apk/repositories
+# aliyun
+$ sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g" /etc/apk/repositories
+
+# tuna
+$ sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+
 ```
 
 ## Install packages
