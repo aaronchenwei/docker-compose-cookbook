@@ -16,7 +16,6 @@ services:
       - postgres:/var/lib/postgres
     command: postgres -c 'shared_buffers=4GB' -c 'max_connections=200'
 
-
 volumes:
   postgres:
     driver: local
