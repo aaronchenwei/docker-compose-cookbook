@@ -1,11 +1,10 @@
-version: "2.4"
+version: "3"
 
 services:
   kafka:
-    image: confluentinc/cp-kafka:5.4.7
+    image: confluentinc/cp-kafka:7.4.1
     depends_on:
       - zookeeper
-    # restart: unless-stopped
     container_name: cp-kafka
     network_mode: host
     environment:
@@ -15,8 +14,7 @@ services:
       - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
 
   zookeeper:
-    image: confluentinc/cp-zookeeper:5.4.7
-    # restart: unless-stopped
+    image: confluentinc/cp-zookeeper:7.4.1
     container_name: cp-zookeeper
     network_mode: host
     environment:
