@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  activemq:
+    image: docker.io/apache/activemq:5.18.2
+    container_name: activemq
+    network_mode: bridge
+    hostname: activemq
+    ports:
+      - 1883:1883
+      - 5672:5672
+      - 61613:61613
+      - 61614:61614
+      - 61616:61616
+      - 8161:8161
