@@ -1,0 +1,20 @@
+version: "2"
+
+services:
+  mariadb:
+    image: aaronchenwei/mariadb:10.11
+    container_name: mariadb
+    hostname: mariadb
+    network_mode: bridge
+    ports:
+      - 3306:3306
+    environment:
+      - MARIADB_ROOT_PASSWORD=my-secret-pw
+      - MARIADB_USER=example-user
+      - MARIADB_PASSWORD=my_cool_secret
+    volumes:
+      - data:/var/lib/mysql
+
+volumes:
+  data:
+    driver: local
