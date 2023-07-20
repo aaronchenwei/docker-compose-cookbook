@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  ceresdb-server:
+    image: ceresdb/ceresdb-server
+    container_name: ceresdb-server
+    hostname: ceresdb-server
+    network_mode: bridge
+    ports:
+      - 8831:8831
+      - 3307:3307
+      - 5440:5440
