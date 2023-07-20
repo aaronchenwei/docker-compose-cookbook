@@ -1,8 +1,8 @@
-version: "2"
+version: "3"
 
 services:
   redis-server:
-    image: redis:${TAG:-alpine}
+    image: redis:${TAG:-bookworm}
     container_name: redis-server
     hostname: redis-server
     network_mode: bridge
@@ -11,3 +11,9 @@ services:
     environment:
       - TZ=Asia/Shanghai
       - MALLOC_ARENA_MAX=1
+    volumes:
+      - data:/data
+
+volumes:
+  data:
+    driver: local
