@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  surrealdb:
+    image: surrealdb/surrealdb
+    container_name: surrealdb
+    hostname: surrealdb
+    network_mode: bridge
+    ports:
+      - 8000:8000
