@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  kvrocks:
+    image: apache/kvrocks
+    container_name: kvrocks
+    hostname: kvrocks
+    network_mode: bridge
+    ports:
+      - 6666:6666
