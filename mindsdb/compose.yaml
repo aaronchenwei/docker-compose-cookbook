@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  mindsdb:
+    image: docker.io/mindsdb/mindsdb:latest
+    container_name: mindsdb
+    hostname: mindsdb
+    network_mode: bridge
+    ports:
+      - 47334:47334
+      - 47335:47335
+    volumes:
+      - mdb_data:/root/mdb_storage
+
+volumes:
+  mdb_data:
+    driver: local
