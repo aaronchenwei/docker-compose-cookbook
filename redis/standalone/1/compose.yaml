@@ -8,6 +8,6 @@ services:
     network_mode: bridge
     ports:
       - 6379:6379
-    sysctls:
-      net.core.somaxconn: "511"
-  
+    environment:
+      - TZ=Asia/Shanghai
+      - MALLOC_ARENA_MAX=1
