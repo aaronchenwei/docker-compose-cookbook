@@ -2,7 +2,7 @@ version: "2"
 
 services:
   redis:
-    image: docker.io/bitnami/redis:6.2
+    image: docker.io/bitnami/redis:7.0
     container_name: bitnami-redis-server
     network_mode: bridge
     environment:
@@ -10,9 +10,9 @@ services:
       - ALLOW_EMPTY_PASSWORD=yes
       - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
     ports:
-      - "6379:6379"
+      - 6379:6379
     volumes:
-      - "redis_data:/bitnami/redis/data"
+      - redis_data:/bitnami/redis/data
 
 volumes:
   redis_data:
