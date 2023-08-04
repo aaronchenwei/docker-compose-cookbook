@@ -13,8 +13,8 @@ services:
     volumes:
       - ./data/qdrant_storage:/qdrant/storage
       - ./custom_config.yaml:/qdrant/config/production.yaml
-    deploy:
-      resources:
-        limits:
-          cpus: "16.0"
-          memory: "32g"
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: "16.0"
+    #       memory: "32g"
