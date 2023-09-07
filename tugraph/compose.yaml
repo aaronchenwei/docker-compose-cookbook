@@ -6,6 +6,8 @@ services:
     container_name: tugraph
     hostname: tugraph
     network_mode: bridge
+    environment:
+      - TZ=Asia/Shanghai
     ports:
       - 7070:7070
       - 9090:9090
