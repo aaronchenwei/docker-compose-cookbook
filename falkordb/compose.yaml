@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  falkordb:
+    image: docker.io/falkordb/falkordb:${TAG:-latest}
+    hostname: falkordb
+    network_mode: bridge
+    ports:
+      - 6379:6379
+      - 7687:7687
