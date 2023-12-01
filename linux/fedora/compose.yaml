@@ -1,20 +1,15 @@
 version: "3"
 
 services:
-  fedora-38:
+  fedora-39:
     build:
       context: .
       dockerfile: Dockerfile
-    image: aaronchenwei/fedora:38
-    container_name: fedora-38
+    image: aaronchenwei/fedora:39
+    container_name: fedora-39
     network_mode: host
     tty: true
     stdin_open: true
-    volumes:
-      - shared:/root/shared
     environment:
       - TZ=Asia/Shanghai
-
-volumes:
-  shared:
-    external: true
+  
