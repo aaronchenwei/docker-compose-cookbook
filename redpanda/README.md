@@ -1,1 +1,1 @@
-https://docs.redpanda.com/docs/reference/docker-compose
+https://docs.redpanda.com/current/reference/docker-compose/#owl-shop-sample-application
