@@ -11,35 +11,51 @@ volumes:
 
 services:
   redpanda:
-    image: docker.redpanda.com/redpandadata/redpanda:v23.1.4
+    image: docker.redpanda.com/redpandadata/redpanda:v23.3.1
     command:
       - redpanda start
       - --smp 1
       - --overprovisioned
-      - --kafka-addr PLAINTEXT://0.0.0.0:29092,OUTSIDE://0.0.0.0:9092
-      - --advertise-kafka-addr PLAINTEXT://redpanda:29092,OUTSIDE://localhost:9092
-      - --pandaproxy-addr 0.0.0.0:8082
-      - --advertise-pandaproxy-addr localhost:8082
+      - --kafka-addr internal://0.0.0.0:9092,external://0.0.0.0:19092
+      # Address the broker advertises to clients that connect to the Kafka API.
+      # Use the internal addresses to connect to the Redpanda brokers
+      # from inside the same Docker network.
+      # Use the external addresses to connect to the Redpanda brokers
+      # from outside the Docker network.
+      - --advertise-kafka-addr internal://redpanda:9092,external://localhost:19092
+      - --pandaproxy-addr internal://0.0.0.0:8082,external://0.0.0.0:18082
+      # Address the broker advertises to clients that connect to the HTTP Proxy.
+      - --advertise-pandaproxy-addr internal://redpanda:8082,external://localhost:18082
+      - --schema-registry-addr internal://0.0.0.0:8081,external://0.0.0.0:18081
+      # Redpanda brokers use the RPC API to communicate with each other internally.
+      - --rpc-addr redpanda:33145
+      - --advertise-rpc-addr redpanda:33145
+      - --mode dev-container
     ports:
-      - 8081:8081
-      - 8082:8082
-      - 9092:9092
-      - 9644:9644
-      - 29092:29092
+      - 18081:18081
+      - 18082:18082
+      - 19092:19092
+      - 19644:9644
     volumes:
       - redpanda:/var/lib/redpanda/data
     networks:
       - redpanda_network
+    healthcheck:
+      test: ["CMD-SHELL", "rpk cluster health | grep -E 'Healthy:.+true' || exit 1"]
+      interval: 15s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
 
   console:
-    image: docker.redpanda.com/redpandadata/console:v2.2.3
+    image: docker.redpanda.com/redpandadata/console:v2.3.8
     entrypoint: /bin/sh
     command: -c "echo \"$$CONSOLE_CONFIG_FILE\" > /tmp/config.yml; /app/console"
     environment:
       CONFIG_FILEPATH: /tmp/config.yml
       CONSOLE_CONFIG_FILE: |
         kafka:
-          brokers: ["redpanda:29092"]
+          brokers: ["redpanda:9092"]
           schemaRegistry:
             enabled: true
             urls: ["http://redpanda:8081"]
@@ -60,15 +76,22 @@ services:
       - redpanda
 
   owl-shop:
-    image: quay.io/cloudhut/owl-shop:latest
+    image: quay.io/cloudhut/owl-shop:sha-042112b
     networks:
       - redpanda_network
-    #platform: 'linux/amd64'
+    # platform: 'linux/amd64'
+    entrypoint: /bin/sh
+    command: -c "echo \"$$OWLSHOP_CONFIG_FILE\" > /tmp/config.yml; /app/owlshop"
     environment:
-      - SHOP_KAFKA_BROKERS=redpanda:29092
-      - SHOP_KAFKA_TOPICREPLICATIONFACTOR=1
-      - SHOP_TRAFFIC_INTERVAL_RATE=1
-      - SHOP_TRAFFIC_INTERVAL_DURATION=0.1s
+      CONFIG_FILEPATH: /tmp/config.yml
+      OWLSHOP_CONFIG_FILE: |
+        shop:
+          requestRate: 1
+          interval: 0.1s
+          topicReplicationFactor: 1
+          topicPartitionCount: 1
+        kafka:
+          brokers: "redpanda:9092"
     depends_on:
       - redpanda
 
@@ -78,7 +101,7 @@ services:
     container_name: connect
     networks:
       - redpanda_network
-    #platform: 'linux/amd64'
+    # platform: 'linux/amd64'
     depends_on:
       - redpanda
     ports:
@@ -97,7 +120,7 @@ services:
           offset.flush.interval.ms=1000
           producer.linger.ms=50
           producer.batch.size=131072
-      CONNECT_BOOTSTRAP_SERVERS: redpanda:29092
+      CONNECT_BOOTSTRAP_SERVERS: redpanda:9092
       CONNECT_GC_LOG_ENABLED: "false"
       CONNECT_HEAP_OPTS: -Xms512M -Xmx512M
       CONNECT_LOG_LEVEL: info
