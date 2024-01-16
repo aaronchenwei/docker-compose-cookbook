@@ -2,25 +2,25 @@ version: "2"
 
 services:
   hazelcast1:
-    image: docker.io/hazelcast/hazelcast:5.1
+    image: docker.io/hazelcast/hazelcast:5
     restart: always
     ports:
       - 5701:5701
 
   hazelcast2:
-    image: docker.io/hazelcast/hazelcast:5.1
+    image: docker.io/hazelcast/hazelcast:5
     restart: always
     ports:
       - 5702:5701
 
   hazelcast3:
-    image: docker.io/hazelcast/hazelcast:5.1
+    image: docker.io/hazelcast/hazelcast:5
     restart: always
     ports:
       - 5703:5701
 
   management-center:
-    image: docker.io/hazelcast/management-center:5.1
+    image: docker.io/hazelcast/management-center:5.3
     restart: always
     ports:
       - 8080:8080
