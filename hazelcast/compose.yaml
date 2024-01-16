@@ -4,18 +4,24 @@ services:
   hazelcast1:
     image: docker.io/hazelcast/hazelcast:5
     restart: always
+    environment:
+      - HZ_CLUSTERNAME=hello-world
     ports:
       - 5701:5701
 
   hazelcast2:
     image: docker.io/hazelcast/hazelcast:5
     restart: always
+    environment:
+      - HZ_CLUSTERNAME=hello-world
     ports:
       - 5702:5701
 
   hazelcast3:
     image: docker.io/hazelcast/hazelcast:5
     restart: always
+    environment:
+      - HZ_CLUSTERNAME=hello-world
     ports:
       - 5703:5701
 
