@@ -2,7 +2,7 @@ version: "3"
 
 services:
   spark:
-    image: docker.io/bitnami/spark:3.3
+    image: docker.io/bitnami/spark:3.5
     hostname: spark
     environment:
       - SPARK_MODE=master
@@ -10,13 +10,14 @@ services:
       - SPARK_RPC_ENCRYPTION_ENABLED=no
       - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
       - SPARK_SSL_ENABLED=no
+      - SPARK_USER=spark
     ports:
       - "8080:8080"
       - "4040:4040"
       - "4041:4041"
       - "7077:7077"
   spark-worker1:
-    image: docker.io/bitnami/spark:3.3
+    image: docker.io/bitnami/spark:3.5
     hostname: spark-worker1
     environment:
       - SPARK_MODE=worker
@@ -27,8 +28,9 @@ services:
       - SPARK_RPC_ENCRYPTION_ENABLED=no
       - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
       - SPARK_SSL_ENABLED=no
+      - SPARK_USER=spark
   spark-worker2:
-    image: docker.io/bitnami/spark:3.3
+    image: docker.io/bitnami/spark:3.5
     hostname: spark-worker2
     environment:
       - SPARK_MODE=worker
@@ -39,8 +41,9 @@ services:
       - SPARK_RPC_ENCRYPTION_ENABLED=no
       - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
       - SPARK_SSL_ENABLED=no
+      - SPARK_USER=spark
   spark-worker3:
-    image: docker.io/bitnami/spark:3.3
+    image: docker.io/bitnami/spark:3.5
     hostname: spark-worker3
     environment:
       - SPARK_MODE=worker
@@ -51,6 +54,7 @@ services:
       - SPARK_RPC_ENCRYPTION_ENABLED=no
       - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
       - SPARK_SSL_ENABLED=no
+      - SPARK_USER=spark
   minio:
     image: docker.io/bitnami/minio:2022
     hostname: minio
@@ -63,8 +67,8 @@ services:
     volumes:
       - "minio_data:/data"
   pyspark-notebook:
-    # bitnami/spark:3.3 is using python 3.8
-    image: docker.io/jupyter/pyspark-notebook:python-3.8
+    # bitnami/spark:3.5 is using python 3.1
+    image: docker.io/jupyter/pyspark-notebook:python-3.11
     ports:
       - "8888:8888"
     environment:
