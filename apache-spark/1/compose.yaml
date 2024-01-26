@@ -2,7 +2,7 @@ version: '2'
 
 services:
   spark:
-    image: docker.io/bitnami/spark:3.4
+    image: docker.io/bitnami/spark:3.5
     environment:
       - SPARK_MODE=master
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
@@ -12,9 +12,8 @@ services:
       - SPARK_USER=spark
     ports:
       - '8080:8080'
-
   spark-worker:
-    image: docker.io/bitnami/spark:3.4
+    image: docker.io/bitnami/spark:3.5
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark:7077
