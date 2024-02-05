@@ -1,8 +1,8 @@
-version: "2"
+version: "3"
 
 services:
   zookeeper:
-    image: zookeeper:${TAG-3.7}
+    image: zookeeper:${TAG-3.9-jre-17}
     container_name: zookeeper
     hostname: zookeeper
     # restart: unless-stopped
