@@ -1,0 +1,15 @@
+global:
+  scrape_interval: 10s
+  evaluation_interval: 30s
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+
+rule_files:
+
+scrape_configs:
+  - job_name: "test-zk"
+    static_configs:
+      - targets: ["zoo1:7000", "zoo2:7000", "zoo3:7000"]

@@ -1,0 +1,64 @@
+version: "3"
+
+services:
+  zoo1:
+    image: docker.io/zookeeper:latest
+    container_name: zoo1
+    restart: always
+    hostname: zoo1
+    ports:
+      - 2181:2181
+      - 7001:7000
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
+      ZOO_4LW_COMMANDS_WHITELIST: mntr, conf, ruok
+      ZOO_CFG_EXTRA: "metricsProvider.className=org.apache.zookeeper.metrics.prometheus.PrometheusMetricsProvider metricsProvider.httpPort=7000 metricsProvider.exportJvmInfo=true"
+
+  zoo2:
+    image: docker.io/zookeeper:latest
+    container_name: zoo2
+    restart: always
+    hostname: zoo2
+    ports:
+      - 2182:2181
+      - 7002:7000
+    environment:
+      ZOO_MY_ID: 2
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
+      ZOO_4LW_COMMANDS_WHITELIST: mntr, conf, ruok
+      ZOO_CFG_EXTRA: "metricsProvider.className=org.apache.zookeeper.metrics.prometheus.PrometheusMetricsProvider metricsProvider.httpPort=7000 metricsProvider.exportJvmInfo=true"
+
+  zoo3:
+    image: docker.io/zookeeper:latest
+    container_name: zoo3
+    restart: always
+    hostname: zoo3
+    ports:
+      - 2183:2181
+      - 7003:7000
+    environment:
+      ZOO_MY_ID: 3
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
+      ZOO_4LW_COMMANDS_WHITELIST: mntr, conf, ruok
+      ZOO_CFG_EXTRA: "metricsProvider.className=org.apache.zookeeper.metrics.prometheus.PrometheusMetricsProvider metricsProvider.httpPort=7000 metricsProvider.exportJvmInfo=true"
+
+  # prometheus server
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - 9090:9090
+    entrypoint: >
+      prometheus
+        --config.file='/etc/prometheus/prometheus.yml'
+        --storage.tsdb.path='data'
+        --web.listen-address='0.0.0.0:9090'
+    volumes:
+      - ./conf/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - 3000:3000
+    depends_on:
+      - prometheus
