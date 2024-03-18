@@ -1,4 +1,4 @@
-version: '3.1'
+version: "3.1"
 
 services:
   # first
@@ -35,11 +35,6 @@ services:
 
   # third
   zoo3:
-    ##### Uncomment block below and comment 'image' parameter in order to test timeout
-    # build:
-    #   context: zoo-timeout
-    # privileged: true  # Needed for iptables drop rule to work in custom entrypoint script
-    ##### End
     image: zookeeper:3.6
     hostname: zoo3
     ports:
@@ -66,7 +61,7 @@ services:
   # prometheus server
   prometheus:
     image: prom/prometheus:latest
-    ports: 
+    ports:
       - 9090:9090
     entrypoint: >
       prometheus
@@ -79,6 +74,6 @@ services:
   grafana:
     image: grafana/grafana:latest
     ports:
-     - 3000:3000
+      - 3000:3000
     depends_on:
-     - prometheus
+      - prometheus
