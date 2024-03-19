@@ -1,1 +1,1 @@
-https://github.com/bitnami/bitnami-docker-airflow
+https://github.com/bitnami/containers/tree/main/bitnami/airflow
