@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  janusgraph:
+    image: docker.io/janusgraph/janusgraph:latest
+    container_name: janusgraph-default
+    ports:
+      - "8182:8182"
+    environment:
+      JANUS_PROPS_TEMPLATE: inmemory
