@@ -12,6 +12,7 @@ services:
         "--max_connections=1001",
         "--character-set-server=utf8mb4",
         "--collation-server=utf8mb4_unicode_ci",
+        "--transaction-isolation=READ-COMMITTED",
       ]
     # restart: always
     network_mode: bridge
