@@ -1,5 +1,3 @@
-version: "2"
-
 services:
   mysql:
     image: docker.io/mysql:${TAG:-8-debian}
@@ -7,7 +5,6 @@ services:
       [
         "--default-authentication-plugin=mysql_native_password",
         "--innodb_buffer_pool_size=8G",
-        "--innodb_log_file_size=512M",
         "--lower_case_table_names=1",
         "--max_connections=1001",
         "--character-set-server=utf8mb4",
@@ -18,6 +15,7 @@ services:
     network_mode: bridge
     ports:
       - 3306:3306
+      - 33060:33060
     environment:
       - TZ=Asia/Shanghai
       - MYSQL_ROOT_PASSWORD=example
